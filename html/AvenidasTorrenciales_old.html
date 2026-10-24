@@ -1,0 +1,563 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Avenidas Torrenciales</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/serif.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<link rel="stylesheet" href="dist/style.css">
+
+</head>
+
+<body>
+
+	<script>
+		setInterval(showTime, 1000);
+		function showTime() {
+			let time = new Date();
+			let hour = time.getHours();
+			let min = time.getMinutes();
+			let sec = time.getSeconds();
+			am_pm = "am";
+
+			if (hour > 12) {
+				hour -= 12;
+				am_pm = "pm";
+			}
+			if (hour == 0) {
+				hr = 12;
+				am_pm = "am";
+			}
+
+			hour = hour < 10 ? "0" + hour : hour;
+			min = min < 10 ? "0" + min : min;
+			sec = sec < 10 ? "0" + sec : sec;
+
+			let currentTime = hour + ":"
+				+ min + ":" + sec + am_pm;
+
+			document.getElementById("clock")
+				.innerHTML = currentTime;
+		}
+
+		showTime();
+	</script>
+
+	<div class="reveal">
+		<div class="slides">
+			<div id="marca-agua"><img style="border:none;box-shadow:none;width:80px;position:absolute;top:0%;right:0%;"
+					src="https://i.pinimg.com/736x/8a/d1/27/8ad12724bdc797e03a9c4561134fc176.jpg" />
+			</div>
+			<div id="lecture"
+				style="font-style: italic;color:rgb(118, 35, 47) ;font-size:14px;position:relative;top:98%; text-align: center;">
+				Curso: Avenidas Torrenciales - Prof. Edier Aristizábal - Universidad Nacional de Colombia, sede
+				Medellín
+			</div>
+			<div id="clock" style="font-size:20px;position:absolute;top:98%;right:98%;">0:00:00</div>
+
+			<section data-state="primera">
+				<h1 style="font-size: 60px; color: black;">AVENIDAS TORRENCIALES</h1>
+				<h4><a href="https://edieraristizabal.github.io/">Prof. Edier Aristizábal</a></h4>
+				<img src="https://i.pinimg.com/564x/f8/5b/28/f85b28f72a65d9c64d8c5e4a7bac57aa.jpg" alt="unal.jpg"
+					width="600" />
+				<p id="demo" style="position:absolute;top:100%;right:40%; color: gray;"></p>
+				<script>
+					var d = new Date();
+					var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+					document.getElementById("demo").innerHTML = months[d.getMonth()] + " " + d.getDate() + " / " + d.getFullYear();
+				</script>
+			</section>
+
+<!-- Intro -->
+			<section>
+
+				<section>
+					<h1>Introducción al curso</h1>
+				</section>
+
+			</section>
+
+<!--Avenidas torrenciales-->
+			<section>
+
+				<section>
+					<h1>Avenidas Torrenciales</h1>
+				</section>
+
+				<section>
+					<h3>Multihazard conceptual framework</h3>
+					<p>Definición: Métodos que consideran mas de una amenaza en un sitio dado y la interrelación entre amenazas,
+						incluyendo la ocurrencia simultanea o acumulativa, asi como sus potenciales interacciones (Gill & Malamud, 2014).</p>
+
+					<p>Como las amenazas se sobreponen en espacio y tiempo, resultando en 4 tipos de interacciones de impactos.</p>
+				</section>
+
+				<section>
+					<h3>Multi-hazards (Gill & Malamud, 2014)</h3>
+					<p><b>Detonante.</b> Interacciones donde la primera amenaza detona una segunda amenaza.</p>
+					<p><b>Influencia.</b> Interacciones donde la probabilidad de una segunda amenaza es incrementada o reducida por la primera amenaza.</p>
+					<p><b>Coincidencia.</b> Eventos donde la coincidencia espacial y temporal coinciden de una primera y segunda amenaza.</p>
+				</section>
+
+				<section>
+					<img src="https://i.pinimg.com/736x/b4/5b/18/b45b18e7d5581026926b7e78d9764721.jpg" width="500">
+					<figcaption>Source: De Angeli et al., 2022</figcaption>
+				</section>
+
+				<section>
+					<img src="https://i.pinimg.com/736x/a5/7d/ca/a57dcad911dbba9e8e9560a7a5413d69.jpg" width="600">
+					<figcaption>Source: De Angeli et al., 2022</figcaption>
+				</section>
+
+				<section>
+					<h3>hillslope and drainage area</h3>
+					<img src="https://ars.els-cdn.com/content/image/1-s2.0-S0341816218300365-gr10.jpg" width="500">
+				</section>
+
+				<section>
+					<h3>Respuesta de la cuenca</h3>
+					<img src="https://echo2.epfl.ch/VICAIRE/mod_1a/chapt_8/pictures/Figure81.gif" width="700">
+				</section>
+
+				<section>
+					<h3>Respuesta de la cuenca</h3>
+					<img src="http://echo2.epfl.ch/VICAIRE/mod_1a/chapt_8/pictures/Figure87.gif" width="700">
+				</section>
+
+				<section>
+					<h3>Respuesta de la cuenca</h3>
+					<img src="http://stream1.cmatc.cn/pub/comet/HydrologyFlooding/hydrograph/comet/hydro/basic/UnitHydrograph/media/graphics/sfcflow.gif"
+						width="700">
+				</section>
+
+				<section>
+					<h3>Respuesta de la cuenca</h3>
+					<img src="https://slideplayer.com/2514629/9/images/slide_1.jpg" width="700">
+				</section>
+
+				<section>
+					<h3>Respuesta de la cuenca</h3>
+					<img src="https://www.researchgate.net/profile/Edier-Aristizabal/publication/275723803/figure/fig2/AS:614061867802642@1523415166398/Water-content-into-the-soil-and-water-available-Root-depth-Z-r-soil-thickness-Z-s_W640.jpg"
+						width="700">
+				</section>
+
+				<section>
+					<h3>Impermeabilización de la cuenca</h3>
+					<img src="https://www.cmap.illinois.gov/documents/10180/61810/stormwater_runoff.jpg/7d86abd4-2e37-419c-90f9-de2c0d15175b?t=1379516743211"
+						width="550">
+				</section>
+
+				<section>
+					<h3>Permeabilidad secundaria</h3>
+					<img src="https://cms-static.wehaacdn.com/jofnm-com/images/20-Q2-6-macropores.104.jpg" width="400">
+				</section>
+
+				<section>
+					<h3>Permeabilidad secundaria</h3>
+					<img src="https://images.slideplayer.com/16/5014546/slides/slide_24.jpg" width="700">
+				</section>
+
+				<section>
+					<h3>Basin shape</h3>
+					<img src="http://877792843598943391.weebly.com/uploads/3/7/2/2/37225869/6466752.jpg?304"
+						width="700">
+				</section>
+
+				<section>
+					<h3>Basin response</h3>
+					<img src="https://i.pinimg.com/564x/03/16/69/0316691372d0f5fa9387c4683ea57ec7.jpg" width="700">
+				</section>
+
+				<section>
+					<h3>Basin response</h3>
+					<img src="https://i.pinimg.com/originals/4c/23/0e/4c230efe4b29d4e533c3f6b8a56763dd.jpg" width="800">
+				</section>
+
+				<section>
+					<h3>Regulación de la cuenca</h3>
+					<img src="https://i.pinimg.com/564x/9a/4c/94/9a4c941cd4994a1e0e7f1fe69240ae2e.jpg" width="700">
+				</section>
+
+				<section>
+					<h1>Debris flow</h1>
+				</section>
+
+				<section>
+					<h3>Respuesta de la cuenca a flujos de escombros</h3>
+					<img src="https://www.researchgate.net/profile/Joshua-Theule/publication/278834968/figure/fig4/AS:669459421343764@1536622972347/Conceptual-model-from-Bovis-and-Jakob-1999-showing-the-debris-flow-occurrence-for.png" width="550">
+					<figcaption>Fuente: Bovis  and  Jakob  (1999)</figcaption>
+				</section>
+
+				<section id="salgar" class="level2">
+					<img src="https://i.pinimg.com/564x/ff/ba/df/ffbadf9de3d59940f87b1eba1a532f91.jpg" alt="Salgar" width="800" />
+					<figcaption>Fuente: El Tiempo</figcaption>
+				</section>
+
+				<section id="mocoa" class="level2">
+					<img src="https://i.pinimg.com/564x/1a/cb/d4/1acbd4c99eb19253ed2ef2c35a07c6db.jpg" alt="Mocoa" width="850" />
+					<figcaption>Fuente: García-Delgado et al., 2019</figcaption>
+				</section>
+
+				<section id="sancarlos" class="level2">
+					<h3>San Carlos (1990)</h3>
+					<img src="https://i.pinimg.com/564x/3a/69/4a/3a694aec93cb6ba23b058ea1bb383171.jpg" alt="San Carlos"
+						width="800" />
+					<figcaption>Foto: Velasquez & Mejía</figcaption>
+				</section>
+
+				<section id="sancarlos" class="level2">
+					<h3>San Carlos (1990)</h3>
+					<img src="https://i.pinimg.com/564x/22/a6/ed/22a6ed4bda37e691f14b5e92fb6f86dd.jpg" alt="San Carlos1"
+						width="800" />
+					<figcaption>Foto: Velasquez & Mejía</figcaption>
+				</section>
+
+				<section id="taraza" class="level2">
+					<h3>Tarazá (2007)</h3>
+					<img src="https://i.pinimg.com/564x/ee/a2/82/eea2826fade6618d051e9eff50415f2c.jpg" alt="Taraza"
+						width="430" />
+					<figcaption>Foto: Marco Gamboa</figcaption>
+				</section>
+
+				<section id="yali" class="level2">
+					<h3>Yalí (2020)</h3>
+					<img src="https://i.pinimg.com/564x/38/e5/b0/38e5b0a0c19d81be1326f5472776b6ae.jpg" alt="Yali"
+						width="1000" />
+					<figcaption>Foto: DAPARD</figcaption>
+				</section>
+
+				<section id="anori" class="level2">
+					<h3>Anorí (2020)</h3>
+					<img src="https://i.pinimg.com/564x/48/de/d2/48ded2fe0653bafd495c80c1071a12c0.jpg" alt="Anori"
+						width="750" />
+					<figcaption>Foto: DAPARD</figcaption>
+				</section>
+
+				<section class="level2">
+					<h3>Dabeiba (2020)</h3>
+					<img src="https://i.pinimg.com/564x/c9/bb/79/c9bb796371139d0badf2fe08077ba2ce.jpg" alt="dabeiba"
+						width="900" />
+					<figcaption>Foto: DAPARD</figcaption>
+				</section>
+
+				<section class="level2">
+					<img src="https://i.pinimg.com/564x/c9/68/d3/c968d3de8d952df10f4392701f1077c6.jpg" width="1100" />
+				</section>
+
+				<section class="level2">
+					<img src="https://i.pinimg.com/564x/7f/09/93/7f0993bd8f0c37ed0e05c0cebcd94241.jpg" width="750" />
+					<figcaption>Modificado de Phillips & Davis (1991)</figcaption>
+				</section>
+
+				<section class="level2">
+					<img src="https://oxfordre.com/naturalhazardscience/doc/10.1093/acrefore/9780199389407.001.0001/acrefore-9780199389407-e-37-graphic-003-full.jpg"
+						width="950" />
+					<figcaption>Fuente: Jakob et al (2015)</figcaption>
+				</section>
+
+				<section class="level2">
+					<img src="https://i.pinimg.com/564x/fd/45/c0/fd45c03375182ccf456568801b70e38e.jpg" width="800" />
+					<figcaption></figcaption>
+				</section>
+				
+				<section>
+					<h3>Clasificación de movimientos en masa</h3>
+					<img src="https://i.pinimg.com/564x/fc/57/b3/fc57b334104da70da57da79259c485ff.jpg"
+						width="800">
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://i.pinimg.com/564x/be/9b/50/be9b504dacaf2a709115028a0f5e650e.jpg" width="800" />
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://i.pinimg.com/564x/7a/ed/6c/7aed6c94470c0b219dd01a9ee0d5c397.jpg" width="500">
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://i.pinimg.com/564x/d3/f5/22/d3f522b27508d0ffddbc9697bd9c4e7f.jpg" width="500">
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://i.pinimg.com/564x/13/a4/79/13a4790a1d31e8952d25fa4749bc2276.jpg" width="500">
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://i.pinimg.com/564x/0f/72/17/0f721714dc30d0bcae11623ca16ef34a.jpg" width="500">
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://i.pinimg.com/564x/4c/71/13/4c7113c7954501916fcadf6b11ffdbb7.jpg" width="500">
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/files/43818444/43818443/1/1608274139394/worddave886aef821f8118d5239635c0d002ffb.png" width="800" />
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/taxonomy-of-mud-and-debris-flows">Source: Coussot & Meunier (1996)</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://onlinelibrary.wiley.com/cms/asset/42b039a8-9fb0-4239-8329-374da92930b6/esp5044-gra-0001.png" width="500" />
+					<figcaption>Source: Gibson et al. (2021)</figcaption>
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://www.researchgate.net/profile/Ian-Floyd/publication/346474445/figure/fig1/AS:963367850225665@1606696202956/Classification-processes-conceptual-model-and-rheological-model-of-the-four-flow.ppm" width="800" />
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-technical-reference-manual/classification-of-non-newtonian-flows">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://www.unomaha.edu/international-studies-and-programs/center-for-afghanistan-studies/academics/transboundary-water-research/DLM8/Fig%208.7Costa2.jpg" width="450" />
+					<figcaption>Source: Pierson & Crosta (1987)</figcaption>
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://i.pinimg.com/564x/22/0d/75/220d7546a319724a1c985583db08e279.jpg" width="800" />
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/files/43818468/43818467/1/1608274141089/worddav93b5179a9e64ea05ec78de06ffb3410c.png" width="800" />
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-technical-reference-manual/classification-of-non-newtonian-flows">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img src="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/files/43818468/43818469/1/1608274141233/worddava85db1ef008f8fbee0ac015408838970.png" width="800" />
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-technical-reference-manual/classification-of-non-newtonian-flows">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Método Hershel-Bulkley</h3>
+					<img src="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/files/43818488/43818487/1/1608274141925/worddav2cfb9f97792edddde512299d557b591c.png" width="800" />
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-technical-reference-manual/classification-of-non-newtonian-flows">HEC-RAS</a></figcaption>
+				</section>
+
+				<section class="level2">
+					<h3>Lluvia + Sedimentos --> Avenida torrencial</h3>
+					<img src="https://i.pinimg.com/564x/9d/6c/6c/9d6c6c3410d2ca137dd6d426dcbba77b.jpg" width="950" />
+				</section>
+
+				<section class="level2">
+					<h3>Lluvia + Enjambre MenM --> Avenida torrencial</h3>
+					<img src="https://i.pinimg.com/564x/44/ad/03/44ad039f504c5ef0b7cfec2207ae8a10.jpg" width="950" />
+				</section>
+
+				<section class="level2">
+					<h3>Lluvia + Sismo --> Avenida torrencial</h3>
+					<img src="https://i.pinimg.com/564x/aa/06/79/aa0679ccd84ea2a3b334f56ed6896b23.jpg" width="950" />
+				</section>
+
+				<section class="level2">
+					<h3>Glaciar + Piroclastos --> Avenida torrencial</h3>
+					<img src="https://i.pinimg.com/564x/39/86/aa/3986aa03dd606e7b2d42a76b6aedcf15.jpg" width="950" />
+				</section>
+
+				<section class="level2">
+					<h3>Embalse + Rotura presa --> Avenida torrencial</h3>
+					<img src="https://i.pinimg.com/564x/9b/1b/7b/9b1b7babca706e458836400373c6c1ff.jpg" width="950" />
+				</section>
+
+				<section class="level2">
+					<h3>Sismo + GLOF's --> Avenida torrencial</h3>
+					<img src="https://i.pinimg.com/564x/2f/14/ec/2f14ec7e6d4aa59f4ad0a6b8c63878a7.jpg" width="850" />
+				</section>
+
+				<section class="level2">
+					<img src="https://i.pinimg.com/564x/f5/81/65/f5816500f5377f132a05852eb6aa541c.jpg" width="800" />
+				</section>
+
+				<section class="level2">
+					<img src="https://i.pinimg.com/564x/3f/64/e3/3f64e396d67beb1bed7fc6b2467e6ce8.jpg" width="1000" />
+				</section>
+
+				<section>
+					<iframe width="700" height="550" src="https://www.youtube.com/embed/0ENe7wDKP6I"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This amazing video captured by San Bernardino county public works - watch all the processes of a <a href="https://twitter.com/hashtag/debrisflow?src=hash&amp;ref_src=twsrc%5Etfw">#debrisflow</a> of the El Dorado scar September 12, 2022 - heavy rain rates on scar at 8000 feet in 1 hour <a href="https://t.co/ZApuQZ5FuP">pic.twitter.com/ZApuQZ5FuP</a></p>&mdash; Alex Tardy Skiwxman (@SanDiegoWCMwx) <a href="https://twitter.com/SanDiegoWCMwx/status/1584932858950320129?ref_src=twsrc%5Etfw">October 25, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</section>
+
+				<section>
+					<h3>Debris flow</h3>
+					<img src="https://media.springernature.com/original/springer-static/image/chp%3A10.1007%2F978-3-319-35074-5_3/MediaObjects/395291_1_En_3_Fig1_HTML.gif"
+						width="900">
+				</section>
+
+				<section>
+					<h3>Avenidas torrenciales</h3>
+					<img src="https://revistas.unal.edu.co/index.php/rcg/article/download/72612/html/464599"
+						width="900">
+				</section>
+
+				<section>
+					<h3>Deposits</h3>
+					<img src="https://i0.wp.com/www.geological-digressions.com/wp-content/uploads/2022/11/debris-flow-lithofacies-Dana-Pt-San-Onofre.jpg?w=1594&ssl=1" width="800">
+					<figcaption>Source: <a href="https://www.geological-digressions.com/tag/debris-flow-rheology/">Debris flow lithofacies</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Deposits</h3>
+					<img src="https://i0.wp.com/www.geological-digressions.com/wp-content/uploads/2022/11/debris-flow-lithofacies-pigeon-point.jpg?w=1342&ssl=1" width="800">
+					<figcaption>Source: <a href="https://www.geological-digressions.com/tag/debris-flow-rheology/">Debris flow lithofacies</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Imbricación</h3>
+					<img src="https://i.pinimg.com/736x/2e/0a/5a/2e0a5ad9841eaf41b7f454c0efedba6a.jpg" width="450">
+					<figcaption>Source: Brenna et al., 2024</figcaption>
+				</section>
+
+				<section>
+					<h3>Imbricación</h3>
+					<img src="https://i.pinimg.com/564x/74/89/d8/7489d84541a9bc8c7e467a0e279d5c6b.jpg" width="550">
+					<figcaption>Source: Brenna et al., 2020</figcaption>
+				</section>
+
+				<section>
+					<h3>Field survey worksheet flow type</h3>
+					<img src="https://i.pinimg.com/564x/db/b2/84/dbb2844dd0197d18884b155b933b514d.jpg" width="430">
+					<figcaption>Source: Brenna et al., 2020</figcaption>
+				</section>
+
+			</section>
+
+<!--Susceptibilidad-->
+			<section>
+
+				<section>
+					<h1>Susceptibilidad</h1>
+				</section>
+
+			</section>
+
+<!--Reología-->
+			<section>
+
+				<section>
+					<h1>Reología</h1>
+				</section>
+
+			</section>
+
+<!--Modelación-->
+			<section>
+
+				<section>
+					<h1>Modelación</h1>
+				</section>
+
+			</section>
+
+<!--Guía-->
+			<section>
+
+				<section>
+					<h1>Guía metodológica</h1>
+				</section>
+
+			</section>
+
+<!--Riesgo-->
+			<section>
+
+				<section>
+					<h1>Evaluación del riesgo</h1>
+				</section>
+
+			</section>
+
+<!--Medidas-->
+			<section>
+
+				<section>
+					<h1>Medidas de mitigación</h1>
+				</section>
+
+			</section>
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/math/math.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			slideNumber: 'c/t',
+			hash: true,
+			math: {
+				// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				TeX: {
+					Macros: {
+						R: '\\mathbb{R}',
+						set: ['\\left\\{#1 \\; ; \\; #2\\right\\}', 2]
+					}
+				}
+			},
+			menu: {
+				side: 'left', // 'left' or 'right'.
+				width: 'normal', // 'normal', 'wide', 'third', 'half', 'full', or
+				numbers: false,
+				titleSelector: 'h1, h2, h3',
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: true,
+				themesPath: 'dist/theme/',
+				transitions: false,  // ['None', 'Fade', 'Slide']
+				openButton: true,
+				openSlideNumber: true,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true
+			},
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu, RevealMath],
+			dependencies: [
+
+			]
+		});
+	</script>
+</body>
+
+</html>

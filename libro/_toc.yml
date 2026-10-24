@@ -1,0 +1,39 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: "Parte I: Caracterización de las avenidas torrenciales"
+    chapters:
+    - file: 01_Intro
+    - file: 02_Flujos
+    - file: 02_Entrainment
+    - file: 02_Hidrometeorologia
+  - caption: "Parte II: Reología y Dinámica"
+    chapters:
+    - file: 03b_EvolucionModelos
+    - file: 03_Ecuaciones
+    - file: 04_TiposFlujos
+    - file: 04_ModelosReologicos
+    - file: 05_DosFases
+    - file: 07_Routing
+  - caption: "Parte III: Modelos Numéricos"
+    chapters:
+    - file: 08_Flow-R
+    - file: 09_OpenLisem
+    - file: 10_RandomWalk
+    - file: 11_Predictor
+    - file: 12_FlowPy
+    - file: 13_GMP
+    - file: 14_ravaflow
+    - file: 15_Grfin
+    - file: 16_Iber_NNF
+    - file: 17_FLO2D
+    - file: 18_HECRAS
+  - caption: "Parte IV: Aplicación normativa en Colombia"
+    chapters:
+    - file: 21_GuiaSGC
+  - caption: "Referencias"
+    chapters:
+    - file: 19_Referencias
