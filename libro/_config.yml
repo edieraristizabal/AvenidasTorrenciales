@@ -23,6 +23,7 @@ bibtex_bibfiles:
 # Pass-through Sphinx settings
 sphinx:
   config:
+    language: es
     # In-text citations render as (Primer apellido, Año)
     bibtex_reference_style: author_year
     # Bibliography list sorted alphabetically by author-year
