@@ -88,6 +88,7 @@ git push origin main      # el Action publica en 2 a 5 minutos (pestaña Actions
 .github/
     workflows/
 .gitignore
+CLAUDE.md
 Programa_AvenidasTorrenciales.pdf
 Programa_AvenidasTorrenciales.tex
 README.md
@@ -172,6 +173,7 @@ References are managed via [references.bib](references.bib) (BibTeX). In-text ci
 
 Cada cambio al repositorio se anota aquí, el más reciente primero, con el formato `- **AAAA-MM-DD**: qué se cambió y por qué (archivos principales).` Esta sección es la memoria del curso entre sesiones: leerla antes de empezar a trabajar.
 
+- **2026-10-24**: Revisión de idioma: se tradujo al español la cita de Iverson (1997) en `html/AvenidasTorrenciales.html`; la referencia bibliográfica y los tweets incrustados quedan en su idioma original. El libro ya estaba en español.
 - **2026-10-24**: CLAUDE.md creado con resumen del contenido, estructura, flujo de ramas, pendientes y este registro; el CLAUDE.md anterior del libro se integra en "Notas del libro" y `libro/CLAUDE.md` queda como un enlace a este archivo.
 - **2026-10-24**: Creación del repositorio unificado: la carpeta de la página (sin git hasta ahora) se inicializa con rama `main`; el libro (antes `Libro_AvTorrenciales`) se copia a `libro/` con `execute_notebooks: off`; workflow `deploy.yml`; `_config.yml` con `baseurl: /AvenidasTorrenciales`; enlaces de `index.md` relativos y los enlaces al libro en `index.md` y `html/AvenidasTorrenciales.html` apuntan a `/AvenidasTorrenciales/libro/`; se quitaron de `.gitignore` las líneas `.git` y `.gitignore`.
 - **2026-10-24**: Commit de respaldo en `Libro_AvTorrenciales` de los 252 cambios locales pendientes antes de unificar.
