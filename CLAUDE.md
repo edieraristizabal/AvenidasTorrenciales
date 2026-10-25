@@ -176,6 +176,7 @@ References are managed via [references.bib](references.bib) (BibTeX). In-text ci
 
 Cada cambio al repositorio se anota aquí, el más reciente primero, con el formato `- **AAAA-MM-DD**: qué se cambió y por qué (archivos principales).` Esta sección es la memoria del curso entre sesiones: leerla antes de empezar a trabajar.
 
+- **2026-10-25**: `README.md` con la sección "Enlaces del curso" (página, presentación y libro publicados) y el enlace a la página personal https://edieraristizabal.github.io/. Se reemplazó el texto, que era una copia del README de Cartografía Geotécnica, por la descripción del curso de Avenidas Torrenciales.
 - **2026-10-25**: Primer `git push -u origin main` al repositorio nuevo de GitHub; el Action terminó con éxito y creó la rama `gh-pages`.
 - **2026-10-24**: Interfaz en español: `_layouts/default.html` traducido ("Ver el proyecto en GitHub", "Este proyecto es mantenido por", `lang` = es), reemplaza el texto en inglés del tema minimal de Jekyll; `language: es` en `libro/_config.yml` para la interfaz del libro.
 - **2026-10-24**: Revisión de idioma: se tradujo al español la cita de Iverson (1997) en `html/AvenidasTorrenciales.html`; la referencia bibliográfica y los tweets incrustados quedan en su idioma original. El libro ya estaba en español.
