@@ -166,7 +166,7 @@ References are managed via [references.bib](references.bib) (BibTeX). In-text ci
 
 ## Pendientes conocidos
 
-- Crear en GitHub el repositorio vacío `edieraristizabal/AvenidasTorrenciales` (sin README) y hacer el primer `git push -u origin main`; luego en Settings → Pages elegir la rama `gh-pages`.
+- En Settings → Pages elegir *Deploy from a branch*, rama `gh-pages`, carpeta `/ (root)` (al 2026-10-25 Pages seguía sin activar y el sitio daba 404, aunque la rama `gh-pages` ya existe).
 - Borrar el repositorio viejo `Libro_AvTorrenciales` cuando se verifique el libro nuevo.
 - En `libro/` hay archivos que parecen temporales del trabajo anterior (`out.txt`, `zz_permtest.txt`, `_g2021.txt`) y listas de trabajo (`missing_citations.txt`, `missing_context.txt`); revisar si se eliminan.
 - Advertencias menores del libro (contenido, no corregidas sin aprobación): saltos de nivel de encabezado (H1 a H3, H2 a H4) en varios capítulos de modelos.
@@ -176,6 +176,7 @@ References are managed via [references.bib](references.bib) (BibTeX). In-text ci
 
 Cada cambio al repositorio se anota aquí, el más reciente primero, con el formato `- **AAAA-MM-DD**: qué se cambió y por qué (archivos principales).` Esta sección es la memoria del curso entre sesiones: leerla antes de empezar a trabajar.
 
+- **2026-10-25**: Primer `git push -u origin main` al repositorio nuevo de GitHub; el Action terminó con éxito y creó la rama `gh-pages`.
 - **2026-10-24**: Interfaz en español: `_layouts/default.html` traducido ("Ver el proyecto en GitHub", "Este proyecto es mantenido por", `lang` = es), reemplaza el texto en inglés del tema minimal de Jekyll; `language: es` en `libro/_config.yml` para la interfaz del libro.
 - **2026-10-24**: Revisión de idioma: se tradujo al español la cita de Iverson (1997) en `html/AvenidasTorrenciales.html`; la referencia bibliográfica y los tweets incrustados quedan en su idioma original. El libro ya estaba en español.
 - **2026-10-24**: CLAUDE.md creado con resumen del contenido, estructura, flujo de ramas, pendientes y este registro; el CLAUDE.md anterior del libro se integra en "Notas del libro" y `libro/CLAUDE.md` queda como un enlace a este archivo.
