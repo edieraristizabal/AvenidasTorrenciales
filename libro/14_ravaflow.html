@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>r.avaflow &#8212; Avenidas Torrenciales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '14_ravaflow';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://edieraristizabal.github.io/AvenidasTorrenciales/libro/14_ravaflow.html" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Grfin Tools" href="15_Grfin.html" />
+    <link rel="prev" title="Gravitational Process Path (GPP)" href="13_GMP.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_book.jpg" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
+    <img src="_static/logo_book.jpg" class="logo__image only-dark pst-js-only" alt="Avenidas Torrenciales - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Qué son las Avenidas torrenciales?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte III: Modelos Numéricos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">r.avaflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte IV: Aplicación normativa en Colombia</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_GuiaSGC.html">Metodología del Servicio Geológico Colombiano</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/edieraristizabal/AvenidasTorrenciales" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/edieraristizabal/AvenidasTorrenciales/issues/new?title=Issue%20on%20page%20%2F14_ravaflow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/14_ravaflow.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>r.avaflow</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-del-modelo">Componentes del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisica-y-reologia-del-modelo">Física y Reología del Modelo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones-clave-entre-fases">Interacciones Clave entre Fases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="r-avaflow">
+<h1>r.avaflow<a class="headerlink" href="#r-avaflow" title="Link to this heading">#</a></h1>
+<section id="componentes-del-modelo">
+<h2>Componentes del modelo<a class="headerlink" href="#componentes-del-modelo" title="Link to this heading">#</a></h2>
+<p>r.avaflow es un marco de simulación de código abierto, robusto y multifuncional, desarrollado sobre la base de un Sistema de Información Geográfica (SIG). Su propósito es modelar flujos de masa y, de manera crucial, las cadenas de procesos que estos pueden desencadenar. Su desarrollo inicial se fundamentó en el modelo bifásico de flujo de masa de Pudasaini <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id84" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pudasaini, 2012</a>]</span>, que consideraba una fase sólida y una fase fluida interactuando entre sí. Reconociendo la complejidad de muchos flujos de detritos reales, el modelo evolucionó hacia un sistema trifásico (sólido, sólido-fino y fluido), como se detalla en Pudasaini y Mergili <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id85" title="Shiva P. Pudasaini and Martin Mergili. A multi-phase mass flow model. Journal of Geophysical Research: Earth Surface, 124(12):2920–2942, 2019. doi:10.1029/2019JF005204.">Pudasaini and Mergili, 2019</a>]</span>, permitiendo una representación más matizada de la reología de la mezcla. La fase sólida se caracteriza por fricción interna y basal, la fase sólida-fina adicionalmente por viscosidad y esfuerzo de cedencia, y la fase fluida por viscosidad y esfuerzo de cedencia. Las interacciones entre las fases se consideran a través de efectos de flotabilidad, masa virtual y arrastre. Un modelo de mezcla tipo Voellmy está disponible como alternativa. Las ecuaciones de balance de masa y momento en Pudasaini y Mergili <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id85" title="Shiva P. Pudasaini and Martin Mergili. A multi-phase mass flow model. Journal of Geophysical Research: Earth Surface, 124(12):2920–2942, 2019. doi:10.1029/2019JF005204.">Pudasaini and Mergili, 2019</a>]</span> son promediadas en la profundidad, y se considera que las fases están mezcladas a lo largo de la altura del flujo, aunque la distribución vertical de la concentración de las fases individuales puede ser controlada. Se utiliza un esquema de diferencias centrales TVD-NOC en una cuadrícula escalonada (<em>staggered grid</em>) para el transporte de masa y momento <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id98" title="Yih-Chin Tai, Sebastian Noelle, John M. N. T. Gray, and Kolumban Hutter. Shock-capturing and front-tracking methods for granular avalanches. Journal of Computational Physics, 175(1):269–301, 2002. doi:10.1006/jcph.2001.6946.">Tai <em>et al.</em>, 2002</a>]</span>. La cuadrícula se desplaza media celda en cada paso de tiempo <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id64" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">Mergili <em>et al.</em>, 2017</a>]</span>.</p>
+<p>Típicamente, la masa de liberación se define a través de mapas ráster que muestran las alturas de liberación para cada celda y cada fase, impuestas sobre un modelo digital del terreno. También se pueden utilizar hidrogramas (no solo para agua, sino para todos los tipos de material considerados en r.avaflow) para introducir masa y momento en el sistema. Las funcionalidades adicionales incluyen la incorporación de material (entrainment), la detención, el movimiento dispersivo no hidrostático, la variación espaciotemporal de varios parámetros y controles, y la evaluación empírica de los resultados.</p>
+<p>La versión más reciente, r.avaflow v4, representa un cambio de paradigma en la flexibilidad del modelo. Abandona la asignación rígida de reologías a fases predefinidas y, en su lugar, introduce un enfoque modular. El comportamiento de cada una de las hasta tres fases se define dinámicamente mediante la activación, desactivación y parametrización de diferentes términos de fuerza dentro de una ecuación de gobierno del momento unificada. Esta ecuación general es:</p>
+<div class="math notranslate nohighlight">
+\[F_{t}+F_{x}+F_{y}=\alpha\cdot h\cdot(GA+DF+DR-EC-TF-FF-AD)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(F_{t}+F_{x}+F_{y}\)</span> representa el cambio total del momento (la cantidad de movimiento) de una porción del flujo. <span class="math notranslate nohighlight">\(F_{t}\)</span> es el cambio del momento en el tiempo (la derivada temporal). <span class="math notranslate nohighlight">\(F_{x}\)</span> y <span class="math notranslate nohighlight">\(F_{y}\)</span> son los flujos de momento en las direcciones x e y, respectivamente. Describen cómo el momento se transporta de un lugar a otro. En esencia, este lado izquierdo de la ecuación representa la inercia del flujo, es decir, cómo su movimiento cambia en el tiempo y en el espacio.</p>
+<p>Por el oro lado, los términos de fuerza <span class="math notranslate nohighlight">\(\alpha\)</span> es la fracción de volumen de la fase que se está analizando (sólida, sólida-fina o fluida) dentro de la mezcla. Este factor es clave porque asegura que cada fuerza se aplique solo a la porción correspondiente del flujo; y <span class="math notranslate nohighlight">\(h\)</span> es la altura total del flujo. Multiplicar por <span class="math notranslate nohighlight">\(α⋅h\)</span> convierte las fuerzas (que son aceleraciones) en una fuerza total por unidad de área para esa fase específica. Las fuerzas dentro del paréntesis que son positivas aceleran el flujo y las negativas lo frenan.</p>
+<ul class="simple">
+<li><p>GA (<em>Gravitational Acceleration</em> - <strong>Aceleración Gravitacional</strong>): Esta es la fuerza impulsora principal. Es la componente de la gravedad que actúa paralela a la pendiente, empujando la masa hacia abajo. Sin esta fuerza, no hay movimiento.</p></li>
+<li><p>DF (<em>Internal Deformation</em> - <strong>Deformación Interna</strong>): Representa los gradientes de presión interna dentro de la masa. Físicamente, es la fuerza que hace que un montón de material se esparza o se deforme por su propio peso. Para la fase sólida, se relaciona con el empuje de tierra (coeficiente de presión de tierra, K), mientras que para la fase fluida, se relaciona con la presión hidrostática.</p></li>
+<li><p>DR (<em>Drag</em> - <strong>Arrastre</strong>): Esta es la fricción interna entre las fases. Cuando una fase (por ejemplo, el agua) se mueve más rápido que otra (los sólidos), ejerce una fuerza de arrastre sobre la más lenta. Es una de las interacciones más importantes en los flujos bifásicos y es fundamental para modelar la mezcla y separación de los componentes.</p></li>
+<li><p>EC (<em>Extended Coulomb</em> - <strong>Coulomb Extendido</strong>): Esta es la principal fuerza de resistencia friccional en la base del flujo. Se basa en la ley de fricción de Coulomb, que establece que la resistencia es proporcional a la presión normal que ejerce la masa sobre el lecho. Este término también incluye la cohesión del material, que es una resistencia que no depende de la presión.</p></li>
+<li><p>TF (<em>Turbulent Friction</em> - <strong>Fricción Turbulenta</strong>): Esta es otra fuerza de resistencia basal. Se usa para modelar la disipación de energía debida a la turbulencia, especialmente en flujos rápidos y fluidos. Cuando se combina con el término de Coulomb (EC), permite simular una reología tipo Voellmy, muy utilizada en el modelado de avalanchas.</p></li>
+<li><p>FF (<em>Fluid Friction</em> - <strong>Fricción del Fluido</strong>): Es la resistencia en la base que afecta específicamente a la fase fluida. Se modela comúnmente con la ecuación de Manning, que relaciona la fricción con la rugosidad del lecho y la velocidad del flujo.</p></li>
+<li><p>AD (<em>Ambient Drag</em> - <strong>Arrastre Ambiental</strong>): Representa la resistencia que el fluido circundante (aire o agua) ejerce sobre la superficie del flujo. Aunque suele ser pequeña para flujos de detritos subaéreos, puede ser muy significativa si el deslizamiento se mueve a través de un cuerpo de agua (como un lago o el mar).</p></li>
+</ul>
+<p>En resumen, el lado derecho de la ecuación es un balance de fuerzas: la gravedad y la deformación interna intentan acelerar el flujo, mientras que las distintas formas de fricción (en la base, entre fases, con el aire) se oponen al movimiento. La dinámica resultante que observamos en la simulación es el resultado neto de esta compleja interacción.</p>
+<p>Una característica inteligente del software es su capacidad para decidir automáticamente si un material se comporta como un sólido (si su ángulo de fricción interna <span class="math notranslate nohighlight">\(\varphi &gt; 0\)</span>) o como un fluido, simplificando la configuración para el usuario. Esta arquitectura modular es la base para las nuevas y potentes funcionalidades de r.avaflow v4, como el Modelo por capas (<em>Layered Model</em>), el Control de deformación (<em>Sliding Model</em>) y el Modelo de flujo lento (<em>Slow-flow Model</em>).</p>
+<p>La solución numérica de las ecuaciones se realiza mediante un esquema de diferencias finitas TVD-NOC (Total Variation Diminishing - Non-Oscillatory Central) sobre una cuadrícula escalonada (<em>staggered grid</em>).</p>
+</section>
+<section id="fisica-y-reologia-del-modelo">
+<h2>Física y Reología del Modelo<a class="headerlink" href="#fisica-y-reologia-del-modelo" title="Link to this heading">#</a></h2>
+<p>La principal fortaleza de r.avaflow reside en su robusto fundamento físico, basado en la teoría de flujos multifásicos. A diferencia de los modelos monofásicos que tratan el flujo de detritos como un único material «equivalente», r.avaflow modela explícitamente las distintas fases y, lo que es más importante, las complejas interacciones entre ellas.</p>
+<p>El núcleo original de r.avaflow se basa en el modelo general bifásico de Pudasaini <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id84" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pudasaini, 2012</a>]</span>. Este modelo fue pionero al incluir de forma unificada varios fenómenos físicos esenciales:</p>
+<ul class="simple">
+<li><p><strong>Fase Sólida:</strong> Tratada como un material plástico regido por el criterio de Mohr-Coulomb.</p></li>
+<li><p><strong>Fase Fluida:</strong> Modelada como un fluido viscoso no newtoniano.</p></li>
+<li><p><strong>Interacciones:</strong> Se incluyeron de forma explícita la fuerza de arrastre (<em>drag</em>), la flotabilidad (<em>buoyancy</em>) y la masa virtual (<em>virtual mass</em>).</p></li>
+</ul>
+<p>Este enfoque bifásico ya permitía simular la separación de fases y la dinámica interna de la mezcla de una manera mucho más realista. Sin embargo, los flujos de detritos naturales a menudo contienen tres componentes reológicamente distintos: cantos y gravas (sólidos), arenas y limos (que pueden tener un comportamiento intermedio) y una matriz de agua y arcillas (fluido viscoso).</p>
+<p>Para abordar esta complejidad, Pudasaini y Mergili <span class="bibtex-citation" id="id7">[<a class="reference internal" href="19_Referencias.html#id85" title="Shiva P. Pudasaini and Martin Mergili. A multi-phase mass flow model. Journal of Geophysical Research: Earth Surface, 124(12):2920–2942, 2019. doi:10.1029/2019JF005204.">Pudasaini and Mergili, 2019</a>]</span> extendieron el marco a un <strong>modelo multifásico</strong> que puede manejar hasta tres fases, cada una con su propia reología y propiedades:</p>
+<ol class="arabic simple">
+<li><p><strong>Fase Sólida (s):</strong> Representa los componentes más gruesos (bloques, cantos, gravas). Se rige por una reología <strong>plástica de Mohr-Coulomb</strong>, donde la resistencia depende de la fricción y no de la tasa de deformación. Es un material puramente friccional.</p></li>
+<li><p><strong>Fase Sólida-Fina (fs):</strong> Representa las partículas de tamaño intermedio como las arenas. Esta fase se modela con una reología <strong>Coulomb-viscoplástica</strong>, dependiente tanto de la presión como de la tasa de cizalla. Esto significa que tiene un componente de resistencia friccional (como la fase sólida) y un componente de resistencia viscosa (como la fase fluida). Su esfuerzo de cedencia depende de la presión y de la fricción del material.</p></li>
+<li><p><strong>Fase Fluida (f):</strong> Representa la matriz de agua con partículas muy finas en suspensión (arcillas, limos). Se trata como un fluido <strong>viscoplástico</strong>, cuya resistencia depende principalmente de la viscosidad y de un posible esfuerzo de cedencia (modelo de Bingham o Herschel-Bulkley).</p></li>
+</ol>
+<section id="interacciones-clave-entre-fases">
+<h3>Interacciones Clave entre Fases<a class="headerlink" href="#interacciones-clave-entre-fases" title="Link to this heading">#</a></h3>
+<p>El realismo del modelo no proviene solo de la reología de cada fase, sino de cómo interactúan. r.avaflow incorpora tres interacciones fundamentales:</p>
+<ul class="simple">
+<li><p><strong>Flotabilidad (<em>Buoyancy</em>):</strong> La fase fluida (y la mezcla de fluido y sólidos finos) ejerce una fuerza de flotación sobre las partículas más grandes, reduciendo la presión efectiva y, por tanto, la resistencia friccional en la base. Esto se modela reduciendo la carga normal de las fases sólida y sólida-fina en función de la densidad de las fases que las rodean. Este efecto es crucial para explicar la alta movilidad de muchos flujos de detritos.</p></li>
+<li><p><strong>Fuerza de Arrastre (<em>Drag</em>):</strong> Cuando existe una velocidad relativa entre las fases, la fase más rápida «arrastra» a la más lenta. r.avaflow utiliza una formulación de arrastre generalizado que es válida para un amplio rango de concentraciones, desde flujos diluidos (donde las partículas se mueven a través del fluido) hasta flujos densos (donde el fluido se mueve a través del esqueleto de granos). El coeficiente de arrastre no es una constante, sino que depende de las propiedades físicas como las fracciones de volumen, las densidades, el diámetro de las partículas y la viscosidad del fluido.</p></li>
+<li><p><strong>Masa Virtual (<em>Virtual Mass</em>):</strong> Este es un concepto más sutil pero físicamente importante. Cuando una fase acelera con respecto a otra, no solo debe mover su propia masa, sino también una parte del fluido circundante que es «empujado». Este efecto de inercia añadido se conoce como masa virtual. Es particularmente relevante en situaciones de rápida aceleración o desaceleración, como el impacto de un deslizamiento en un embalse, y acopla fuertemente las ecuaciones de momento de las diferentes fases.</p></li>
+</ul>
+<p>Además de estas interacciones, el modelo de Pudasaini <span class="bibtex-citation" id="id8">[<a class="reference internal" href="19_Referencias.html#id84" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pudasaini, 2012</a>]</span> introduce un esfuerzo viscoso no newtoniano mejorado, donde la viscosidad aparente del fluido se ve afectada por el gradiente de concentración de sólidos. Esto significa que la resistencia viscosa cambia si el flujo se está volviendo más o menos concentrado en la dirección del movimiento, un fenómeno observado en flujos de alta concentración.</p>
+</section>
+</section>
+<section id="datos">
+<h2>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h2>
+<p>La siguiente tabla resume los parámetros de entrada más importantes que el usuario debe definir para controlar la reología y el comportamiento del flujo en r.avaflow. Se distinguen los parámetros reológicos clásicos de aquellos asociados a las nuevas funcionalidades de la versión v4.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><strong>Componente del modelo</strong></p></th>
+<th class="head text-left"><p><strong>Parámetro</strong></p></th>
+<th class="head text-left"><p><strong>Símbolo</strong></p></th>
+<th class="head text-left"><p><strong>Unidad</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Reología / Flujo</p></td>
+<td class="text-left"><p>Ángulo de fricción interna</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\varphi\)</span></p></td>
+<td class="text-left"><p>°</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Ángulo de fricción basal</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta\)</span></p></td>
+<td class="text-left"><p>°</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Cohesión</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(c\)</span></p></td>
+<td class="text-left"><p>Pa</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Número de fricción turbulenta (Voellmy)</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\zeta\)</span></p></td>
+<td class="text-left"><p>m/s²</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Coeficiente de Manning</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<td class="text-left"><p>s/m^(1/3)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Coeficiente de arrastre entre fases</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(c_{DRAG}\)</span></p></td>
+<td class="text-left"><p>–</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Densidad del material</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\rho\)</span></p></td>
+<td class="text-left"><p>kg/m³</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Altura inicial de la fase</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(h\)</span></p></td>
+<td class="text-left"><p>m</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Coeficiente de entrainment</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_E\)</span></p></td>
+<td class="text-left"><p>kg⁻¹</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Modelo de Deslizamiento</p></td>
+<td class="text-left"><p>Factor de deformación (bruto)</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(f_{d}^{*}\)</span></p></td>
+<td class="text-left"><p>–</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Fracción de deslizamiento global</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(f_{g}\)</span></p></td>
+<td class="text-left"><p>–</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Modelo de Flujo Lento</p></td>
+<td class="text-left"><p>Viscosidad cinemática</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\nu\)</span></p></td>
+<td class="text-left"><p>m²/s</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Término de viscosidad de la capa basal</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\xi\)</span></p></td>
+<td class="text-left"><p>1/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El pilar fundamental para cualquier simulación en r.avaflow es un DEM. La calidad y resolución de este MDE son críticas, ya que determinan directamente la precisión de las pendientes, las rutas de flujo y, en consecuencia, las velocidades y la extensión final del depósito. La masa inicial del deslizamiento se define típicamente mediante mapas ráster que especifican la altura de liberación para cada una de las fases en cada celda. Alternativamente, para simular la entrada de flujo desde un punto, como la ruptura de una presa, se pueden utilizar hidrogramas.</p>
+<p>Los parámetros de los materiales, que definen su comportamiento reológico (ángulos de fricción, cohesión, viscosidad, densidad), deben ser definidos por el usuario basándose en datos de campo, ensayos de laboratorio o literatura de casos análogos. Las nuevas funcionalidades requieren parámetros específicos, como el factor de deformación para el <em>Sliding Model</em> o los parámetros de viscosidad para el <em>Slow-flow Model</em>.</p>
+</section>
+<section id="salidas">
+<h2>Salidas<a class="headerlink" href="#salidas" title="Link to this heading">#</a></h2>
+<p>r.avaflow está diseñado para proporcionar una rica variedad de salidas que facilitan un análisis exhaustivo de los resultados de la simulación:</p>
+<ul class="simple">
+<li><p><strong>Salidas dinámicas:</strong> El resultado principal son series temporales de mapas ráster (en formato ASCII o GeoTIFF) que muestran la evolución de variables clave como la altura de flujo, la velocidad, la presión dinámica y la energía cinética. Estos mapas se generan para cada fase, permitiendo un análisis detallado de la dinámica interna del flujo.</p></li>
+<li><p><strong>Archivos de resumen:</strong> Se generan archivos de texto que contienen un resumen global de la simulación, incluyendo balances de masa y otros datos agregados.</p></li>
+<li><p><strong>Gráficos y animaciones:</strong> El software tiene la capacidad de generar automáticamente gráficos y animaciones básicas del proceso, útiles para una primera evaluación rápida de los resultados.</p></li>
+<li><p><strong>Interfaz para 3D y Realidad Virtual (RV):</strong> Una de las innovaciones más destacadas de la v4 es su capacidad para tender un puente hacia herramientas de visualización avanzadas. Genera automáticamente series temporales de archivos CSV y scripts de Python que facilitan la importación de los resultados en software como <strong>Paraview</strong>, <strong>Blender 3</strong> y el motor de juegos <strong>Unreal Engine 5</strong>. Esta funcionalidad abre la puerta a la creación de productos de comunicación de alto impacto, desde videos 3D y anaglifos (para ver con gafas rojo-cian) hasta experiencias de realidad virtual totalmente inmersivas, donde el usuario puede «caminar» por el escenario e incluso interactuar con él, ofreciendo un potencial educativo.</p></li>
+</ul>
+</section>
+<section id="calibracion-y-evaluacion">
+<h2>Calibración y Evaluación<a class="headerlink" href="#calibracion-y-evaluacion" title="Link to this heading">#</a></h2>
+<p>La calibración de los parámetros es un desafío significativo, especialmente para cadenas de procesos complejas. El enfoque estándar es un procedimiento manual de prueba y error. En este proceso, el modelador ajusta iterativamente los parámetros de entrada (como los ángulos de fricción o la viscosidad) y compara los resultados de la simulación (la extensión y altura del depósito, las velocidades máximas, etc.) con observaciones de eventos reales bien documentados.</p>
+<p>Este proceso manual es intensivo y se enfrenta al problema de la equifinalidad, un concepto bien conocido en modelización ambiental donde diferentes combinaciones de parámetros pueden producir resultados finales muy similares. Esto hace que sea difícil identificar un único conjunto de parámetros «correctos» sin una cantidad suficiente de datos de campo de alta calidad para la validación.</p>
+<p>Ya desde la versión 1, r.avaflow incluyó herramientas para facilitar este proceso, como la capacidad de ejecutar múltiples simulaciones en paralelo variando los parámetros de forma controlada. Esto permite realizar análisis de sensibilidad y optimización de manera más sistemática. La v1 también introdujo métricas de validación incorporadas, como el Índice de Éxito Crítico (CSI) y el Área Bajo la Curva ROC (AUROC), para comparar cuantitativamente los resultados simulados con las áreas de impacto observadas. Aunque el proceso sigue siendo un desafío, estas herramientas proporcionan un marco robusto para la evaluación del modelo.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="13_GMP.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Gravitational Process Path (GPP)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="15_Grfin.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Grfin Tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-del-modelo">Componentes del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisica-y-reologia-del-modelo">Física y Reología del Modelo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones-clave-entre-fases">Interacciones Clave entre Fases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Edier V. Aristizábal G.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

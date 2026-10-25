@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducción &#8212; Avenidas Torrenciales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_Intro';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://edieraristizabal.github.io/AvenidasTorrenciales/libro/01_Intro.html" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Qué son las Avenidas torrenciales?" href="02_Flujos.html" />
+    <link rel="prev" title="Avenidas Torrenciales" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_book.jpg" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
+    <img src="_static/logo_book.jpg" class="logo__image only-dark pst-js-only" alt="Avenidas Torrenciales - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Qué son las Avenidas torrenciales?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte III: Modelos Numéricos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte IV: Aplicación normativa en Colombia</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_GuiaSGC.html">Metodología del Servicio Geológico Colombiano</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/edieraristizabal/AvenidasTorrenciales" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/edieraristizabal/AvenidasTorrenciales/issues/new?title=Issue%20on%20page%20%2F01_Intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01_Intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="introduccion">
+<h1>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<p>Aunque las avenidas torrenciales han sido un fenómeno común en Colombia, los estudios realizados al respecto son escasos. Probablemente una de las razones está asociada a la falta de un consenso con respecto a clasificación y terminología de fenómenos tipo flujos torrenciales que permita caracterizar adecuadamente qué son las avenidas torrenciales. La literatura técnica en inglés utiliza términos como <em>flash flood</em>, <em>debris flood</em>, <em>debris torrent</em> y <em>debris flow</em> para una gran cantidad de fenómenos de mezcla de agua y sedimentos que se transportan de la ladera a los cauces. En español existen términos como inundación súbita, avenida torrencial e incluso avalanchas para designar este tipo de fenómenos.</p>
+<p>En Colombia las avenidas torrenciales son entendidas como movimientos en masa o como crecientes súbitas, fenómenos aparentemente muy diferentes que implica el uso de técnicas con enfoques diferentes. INGEOMINAS <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id41" title="INGEOMINAS. Movimientos en masa en Colombia: avenidas torrenciales y flujos de detritos. Informe Técnico, Instituto Nacional de Investigaciones Geológico-Mineras, Bogotá, Colombia, 2001.">INGEOMINAS, 2001</a>]</span> define las avenidas torrenciales como fenómenos de remoción en masa donde el agua de una corriente aumenta considerablemente su volumen por el transporte de material solido que alcanza su cauce desde las laderas adyacentes. En este mismo sentido, Castro <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id11" title="C. Castro. Avenidas torrenciales como flujos de escombros canalizados: propuesta terminológica. Informe Técnico, INGEOMINAS, Bogotá, Colombia, 1999.">Castro, 1999</a>]</span> propone establecer el uso del término avenidas torrenciales como un flujo de escombros canalizado. La <em>Guía para la Evaluación de Amenazas por Movimientos en Masa en la Región Andina <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id81" title="PMA-GCA. Guía para la evaluación de amenazas por movimientos en masa en la región andina. Technical Report, Programa para la Gestión del Riesgo de Desastres — Proyecto PREDECAN, Lima, Perú, 2007.">PMA-GCA, 2007</a>]</span></em> define las avenidas torrenciales como flujos de detritos (<em>debris flow</em>) siguiendo la definición de Hungr et al <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id36" title="Oldrich Hungr, Stephen G. Evans, Michael J. Bovis, and John N. Hutchinson. A review of the classification of landslides of the flow type. Environmental &amp; Engineering Geoscience, 7(3):221–238, 2001. doi:10.2113/gseegeosci.7.3.221.">Hungr <em>et al.</em>, 2001</a>]</span>. Por otro lado, en el marco de los Planes de Ordenación y Manejo de Cuencas (POMCA), las avenidas torrenciales son entendidas como inundaciones de tipo fluvial rápidas o torrenciales. La <em>Guía Técnica para la Incorporación de la Gestión del Riesgo en los POMCA</em> define las avenidas torrenciales como crecientes súbitas que por las condiciones geomorfológicas de la cuenca están compuestas por un flujo de agua con alto contenido de materiales de arrastre, con un gran potencial destructivo debido a su alta velocidad <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id59" title="MADS. Guía técnica para la incorporación de la gestión del riesgo en los planes de ordenación y manejo de cuencas hidrográficas (POMCA). Technical Report, Ministerio de Ambiente y Desarrollo Sostenible, Bogotá, Colombia, 2014.">MADS, 2014</a>]</span>. El Fondo de Prevención y Atención de Emergencias de la ciudad de Bogotá (FOPAE) define las avenidas torrenciales como sinónimo de inundaciones rápidas generadas por crecientes que ocurren de manera repentina debido a la alta pendiente del río o la quebrada y su cuenca, donde en ocasiones se produce el arrastre de una gran cantidad de material como detritos <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id21" title="FOPAE. Microzonificación sísmica detallada de los municipios de Guarenas, Guatire, Púa, La Paz y otros municipios. Informe Técnico, Fondo de Prevención y Atención de Emergencias, Bogotá, Colombia, 2011.">FOPAE, 2011</a>]</span>.</p>
+<p>Estas dos miradas sobre las avenidas torrenciales se reflejan en la <em>Guía Metodológica para la Evaluación de la Amenaza por Movimientos en Masa en Suelo Rural</em> del Servicio Geológico Colombiano (SGC). En esta guía las avenidas torrenciales se consideran equivalentes a los flujos de detritos y flujos de lodos descritos por el PMA-CGA <span class="bibtex-citation" id="id7">[<a class="reference internal" href="19_Referencias.html#id81" title="PMA-GCA. Guía para la evaluación de amenazas por movimientos en masa en la región andina. Technical Report, Programa para la Gestión del Riesgo de Desastres — Proyecto PREDECAN, Lima, Perú, 2007.">PMA-GCA, 2007</a>]</span>, pero adopta la definición de la guía de los POMCA como procesos tipo flujo que incluye eventos generados sobre ríos y quebradas de alta montaña y en cuencas con características geomorfológicas que favorecen la alta acumulación de sedimentos sobre el cauce, cambios drásticos en el gradiente del afluente, alta densidad de drenaje y eventos de precipitación <span class="bibtex-citation" id="id8">[<a class="reference internal" href="19_Referencias.html#id60" title="MADS and UNAL. Guía metodológica para la evaluación de la amenaza por movimientos en masa en suelo rural. Technical Report, Ministerio de Ambiente y Desarrollo Sostenible and Universidad Nacional de Colombia, Bogotá, Colombia, 2013.">MADS and UNAL, 2013</a>]</span>.</p>
+<p>Estas dos miradas han dado como resultado metodologías con enfoques diferentes para evaluar la susceptibilidad o amenaza ante avenidas torrenciales. En la guía de los POMCA se propone el uso de índices morfométricos para evaluar la respuesta hidrológica de la cuenca, específicamente el <em>Índice de Vulnerabilidad frente a Eventos Torrenciales (IVET)</em>, combinado con análisis geomorfológicos para evaluar el potencial aporte de sedimentos de la cuenca. Y en las guías que ha elaborado el SGC para movimientos en masa se han propuesto métodos estadísticos para evaluar la susceptibilidad por movimientos en masa sobre las laderas de la cuenca, como potencial aporte de sedimentos, combinado con análisis geomorfológico <span class="bibtex-citation" id="id9">[<a class="reference internal" href="19_Referencias.html#id40" title="INGEOMINAS. Inventario de movimientos en masa en Colombia. Informe Técnico, Instituto Nacional de Investigaciones Geológico-Mineras, Bogotá, Colombia, 1988.">INGEOMINAS, 1988</a>, <a class="reference internal" href="19_Referencias.html#id94" title="SGC. Guía metodológica para la zonificación de amenaza por movimientos en masa. Technical Report, Servicio Geológico Colombiano, Bogotá, Colombia, 2017.">SGC, 2017</a>]</span>.</p>
+<p>El Servicio Geológico Colombiano (SGC) cuenta a la fecha con dos guías metodológicas para la zonificación de amenaza por avenidas torrenciales: la <em>Guía metodológica para zonificación de amenaza por avenidas torrenciales</em>, elaborada en convenio con la Pontificia Universidad Javeriana en 2021 <span class="bibtex-citation" id="id10">[<a class="reference internal" href="19_Referencias.html#id336" title="Alfonso Mariano Ramos-Cañón, Antonio Andrés Reyes Merchán, Maddy Alejandra Munévar Peña, Gloria Lucía Ruiz Peña, and others. Guía metodológica para zonificación de amenaza por avenidas torrenciales. Technical Report, Servicio Geológico Colombiano y Pontificia Universidad Javeriana, Bogotá, Colombia, 2021.">Ramos-Cañón <em>et al.</em>, 2021</a>]</span>, y su actualización, publicada por el SGC en 2026 <span class="bibtex-citation" id="id11">[<a class="reference internal" href="19_Referencias.html#id345" title="German Barreto Arciniegas, Miguel Angel Gómez Fonseca, Juan David Bohórquez Robayo, Enif Medina Bello, Eduardo Quintero Chavarría, Julio Fierro Morales, and others. Guía metodológica para zonificación de amenaza por avenidas torrenciales. Technical Report, Servicio Geológico Colombiano, Bogotá D. C., Colombia, 7 2026.">Barreto Arciniegas <em>et al.</em>, 2026</a>]</span>. Ambas adoptan la definición de avenidas torrenciales como flujos rápidos que transitan por cauces permanentes o intermitentes con pendientes longitudinales altas, que pueden ser generados por efecto de lluvias intensas, término que comprende para los autores flujos de detritos, flujos de lodos y flujos hiperconcentrados. De esta forma proponen esquemas metodológicos que combinan criterios geológico-geomorfológicos, análisis geotécnicos sobre las laderas para evaluar el potencial aporte de sedimentos por movimientos en masa y erosión laminar, análisis hidrológicos para estimar el factor detonante lluvia, y finalmente modelos fluido-dinámicos de acuerdo con la reología, para propagar el flujo. Ambas guías se describen con mayor detalle más adelante en este libro.</p>
+<p>Más allá de la discusión conceptual, las avenidas torrenciales representan uno de los fenómenos de remoción en masa de mayor poder destructivo en Colombia. De acuerdo con los registros del Sistema de Inventario de Efectos de Desastres (DesInventar) sistematizados por Aristizábal et al. <span class="bibtex-citation" id="id12">[<a class="reference internal" href="19_Referencias.html#id337" title="Edier Aristizábal, María Isabel Arango-Carmona, and Ivonne Katherine García López. Definición y clasificación de las avenidas torrenciales y su impacto en los andes colombianos. Revista Colombiana de Geografía, 2020.">Aristizábal <em>et al.</em>, 2020</a>]</span>, entre 1900 y 2018 se documentaron <strong>1358 avenidas torrenciales</strong> en el país, con un saldo de <strong>3318 víctimas fatales</strong>, cerca de 1 264 705 personas afectadas (aproximadamente el 2,5 % de la población colombiana para 2018), 13 698 viviendas destruidas y pérdidas económicas estimadas en más de 32 000 millones de pesos —aunque este último dato solo pudo documentarse para el 4,9 % de los eventos—.</p>
+<p>La distribución temporal de los años con mayor número de desastres asociados (1988, 1994, 1999, 2005 y 2011, entre otros) coincide de forma recurrente con la fase fría del fenómeno ENSO (La Niña), lo que subraya la importancia de la variabilidad climática interanual como modulador de la actividad torrencial en el país <span class="bibtex-citation" id="id13">[<a class="reference internal" href="19_Referencias.html#id337" title="Edier Aristizábal, María Isabel Arango-Carmona, and Ivonne Katherine García López. Definición y clasificación de las avenidas torrenciales y su impacto en los andes colombianos. Revista Colombiana de Geografía, 2020.">Aristizábal <em>et al.</em>, 2020</a>]</span>. Entre los eventos más severos en términos de pérdida de vidas humanas se encuentran:</p>
+<ul class="simple">
+<li><p><strong>Mocoa, Putumayo (1 de abril de 2017)</strong>: 332 muertos, 77 desaparecidos y cerca de 1200 viviendas afectadas.</p></li>
+<li><p><strong>El Playón, Santander (25 de noviembre de 1979)</strong>: 200 muertos y 500 viviendas afectadas.</p></li>
+<li><p><strong>Salgar, Antioquia (18 de mayo de 2015)</strong>: 93 muertos, 11 desaparecidos y 309 viviendas afectadas o destruidas.</p></li>
+</ul>
+<p>Estas cifras evidencian que, más allá de las diferencias conceptuales entre las miradas institucionales presentadas anteriormente, las avenidas torrenciales constituyen una amenaza recurrente y de alto impacto humano y económico en la región Andina, lo que justifica el desarrollo de herramientas de análisis y modelación como las que se presentan a lo largo de este libro.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Avenidas Torrenciales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_Flujos.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Qué son las Avenidas torrenciales?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Edier V. Aristizábal G.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

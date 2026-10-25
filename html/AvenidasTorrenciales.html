@@ -1,0 +1,1488 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Avenidas Torrenciales</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/serif.css" id="theme">
+	<link rel="stylesheet" href="dist/style.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 15px;
+			font-size: 0.5em;
+		}
+
+		th,
+		td {
+			border: 1px solid #ccc;
+			padding: 6px;
+			text-align: center;
+		}
+
+		th {
+			background-color: #e0ecf8;
+		}
+
+		.highlight {
+			font-weight: bold;
+			color: #1a4e80;
+		}
+
+		/* Figura grande que no se sale de la diapositiva */
+		.reveal img.fig {
+			max-height: 540px;
+			width: auto;
+			max-width: 100%;
+		}
+
+		/* Dos columnas: figura + figura o figura + texto */
+		.cols {
+			display: flex;
+			gap: 18px;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.cols>div {
+			flex: 1 1 0;
+			min-width: 0;
+		}
+
+		.cols img {
+			max-width: 100%;
+			max-height: 470px;
+		}
+
+		/* Frase corta y grande para ideas clave */
+		.big {
+			font-size: 1.1em !important;
+			text-align: center;
+			line-height: 1.3;
+		}
+
+		.tag {
+			display: inline-block;
+			padding: 4px 12px;
+			margin: 4px;
+			border-radius: 14px;
+			background: #e0ecf8;
+			color: #1a4e80;
+			font-size: 0.5em;
+			font-weight: bold;
+		}
+
+		.reveal p .tag {
+			font-size: 0.9em;
+		}
+
+		.reveal video {
+			max-height: 540px;
+			max-width: 100%;
+		}
+
+		/* Calculadora Melton */
+		.calc {
+			font-size: 1.3em;
+			background: #f7f9fb;
+			border: 1px solid #c8d6e5;
+			border-radius: 8px;
+			padding: 14px 20px;
+			text-align: left;
+		}
+
+		.calc input[type=range] {
+			width: 60%;
+		}
+
+		.calc p {
+			font-size: 0.6em !important;
+		}
+
+		.calc .out {
+			font-size: 1.4em;
+			font-weight: bold;
+			color: #1a4e80;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<script>
+		setInterval(showTime, 1000);
+		function showTime() {
+			let time = new Date();
+			let hour = time.getHours();
+			let min = time.getMinutes();
+			let sec = time.getSeconds();
+			am_pm = "am";
+
+			if (hour > 12) {
+				hour -= 12;
+				am_pm = "pm";
+			}
+			if (hour == 0) {
+				hr = 12;
+				am_pm = "am";
+			}
+
+			hour = hour < 10 ? "0" + hour : hour;
+			min = min < 10 ? "0" + min : min;
+			sec = sec < 10 ? "0" + sec : sec;
+
+			let currentTime = hour + ":"
+				+ min + ":" + sec + am_pm;
+
+			document.getElementById("clock")
+				.innerHTML = currentTime;
+		}
+
+		showTime();
+	</script>
+
+	<div class="reveal">
+		<div class="slides">
+
+			<div id="marca-agua"><img style="border:none;box-shadow:none;width:80px;position:absolute;top:0%;right:0%;"
+					src="https://i.pinimg.com/736x/8a/d1/27/8ad12724bdc797e03a9c4561134fc176.jpg" />
+			</div>
+			<div id="lecture"
+				style="font-style: italic;color:rgb(118, 35, 47) ;font-size:14px;position:relative;top:98%; text-align: center;">
+				Curso: Avenidas Torrenciales - Prof. Edier Aristizábal - Universidad Nacional de Colombia, sede
+				Medellín
+			</div>
+			<div id="clock" style="font-size:20px;position:absolute;top:98%;right:98%;">0:00:00</div>
+
+			<!-- Portada -->
+			<section data-background-color="#ffffff" data-state="primera">
+				<h1 style="font-size: 60px;">AVENIDAS TORRENCIALES</h1>
+				<h4><a href="https://edieraristizabal.github.io/">Prof. Edier Aristizábal</a></h4>
+				<img src="https://i.pinimg.com/originals/f8/5b/28/f85b28f72a65d9c64d8c5e4a7bac57aa.png" alt="unal"
+					width="350" />
+				<p id="demo" style="position:absolute;top:100%;right:40%;"></p>
+				<script>
+					var d = new Date();
+					var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+					document.getElementById("demo").innerHTML = months[d.getMonth()] + " " + d.getDate() + " / " + d.getFullYear();
+				</script>
+			</section>
+
+			<section data-background-image="https://i.pinimg.com/originals/f5/20/f9/f520f9bfb3388a2859011a50fc88cbf2.jpg"
+				data-background-opacity="0.35">
+				<p class="big">«Los flujos de detritos están entre las amenazas naturales más peligrosas y destructivas que afectan a los seres humanos».</p>
+				<p style="text-align: right;"><small>Jakob &amp; Hungr (2005)</small></p>
+			</section>
+
+			<!-- ===================== 1. INTRODUCCIÓN AL CURSO ===================== -->
+			<section>
+				<section>
+					<h1>1. Introducción al curso</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/e0/96/b2/e096b23da20446e798d8cea154c6362e.png"
+						width="650">
+					<figcaption>Mocoa, abril de 2017. Fuente: Voice of America (Wikimedia Commons)</figcaption>
+				</section>
+
+				<section>
+					<h2>¿Qué vamos a aprender?</h2>
+					<div class="cols">
+						<div>
+							<p><span class="tag">Reconocer</span> el fenómeno y sus evidencias en campo</p>
+							<p><span class="tag">Entender</span> la física: lluvia, sedimentos, reología</p>
+							<p><span class="tag">Modelar</span> el alcance y la intensidad</p>
+							<p><span class="tag">Zonificar</span> la amenaza con la guía del SGC</p>
+							<p><span class="tag">Mitigar</span> el riesgo</p>
+						</div>
+						<div><img src="https://i.pinimg.com/originals/85/5b/4a/855b4a4e3216eb32918153597cc7e6dc.jpg">
+							<figcaption>Abanico del Illgraben, Suiza. Foto: Sphoo (CC BY-SA 4.0)</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Organización</h2>
+					<table>
+						<tr>
+							<th>Intensidad</th>
+							<td>4 h/semana, 2 sesiones de 2 h</td>
+						</tr>
+						<tr>
+							<th>Prerrequisito</th>
+							<td>Geomorfología (recomendados: SIG y Sensores Remotos)</td>
+						</tr>
+						<tr>
+							<th>Salida de campo</th>
+							<td>3 días / 2 noches a una cuenca torrencial de Antioquia</td>
+						</tr>
+						<tr>
+							<th>Programa</th>
+							<td><a href="../Programa_AvenidasTorrenciales.pdf">Programa_AvenidasTorrenciales.pdf</a></td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Libro guía</h2>
+					<a href="https://edieraristizabal.github.io/AvenidasTorrenciales/libro/"><img
+							src="https://i.pinimg.com/1200x/e2/38/d6/e238d69b696c047d37561b24f912ae79.jpg" width="550"></a>
+					<p><a href="https://edieraristizabal.github.io/AvenidasTorrenciales/libro/">edieraristizabal.github.io/AvenidasTorrenciales/libro</a></p>
+				</section>
+
+				<section>
+					<h2>Bibliografía base</h2>
+					<ul>
+						<li>Jakob, M., McDougall, S. &amp; Santi, P. (2024). <em>Advances in Debris-flow Science and
+								Practice</em>. Springer.</li>
+						<li>Jakob, M. &amp; Hungr, O. (2005). <em>Debris-flow Hazards and Related Phenomena</em>.
+							Springer.</li>
+						<li>SGC (2026). <em>Guía metodológica para la zonificación de amenaza por avenidas
+								torrenciales</em>.</li>
+						<li>SGC – PUJ (2021). <em>Guía metodológica para la zonificación de amenaza por avenidas
+								torrenciales</em>.</li>
+						<li>Iverson, R. M. (1997). The physics of debris flows. <em>Reviews of Geophysics</em>.</li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- ===================== 2. ¿QUÉ SON LAS AVENIDAS TORRENCIALES? ===================== -->
+			<section>
+				<section>
+					<h1>2. ¿Qué son las avenidas torrenciales?</h1>
+					<video data-autoplay muted loop controls src="videos/nepal_debris_flood.mp4" height="500"></video>
+					<figcaption>Debris flood (बितण्ड बाढी), Nepal</figcaption>
+				</section>
+
+				<section>
+					<h3>Agua + sedimentos + pendiente</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/df/03/71/df03715fe1bbda3fb50a6d77e906a084.jpg">
+					<figcaption>Continuo de flujos torrenciales. Modificado de Pierson &amp; Costa (1987)</figcaption>
+				</section>
+
+				<section>
+					<h3>Agua, finos y gruesos</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/7f/09/93/7f0993bd8f0c37ed0e05c0cebcd94241.jpg">
+					<figcaption>Modificado de Phillips &amp; Davis (1991)</figcaption>
+				</section>
+
+				<section>
+					<h3>De la ladera al abanico</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/3f/64/e3/3f64e396d67beb1bed7fc6b2467e6ce8.jpg">
+					<figcaption>Avalanchas, flujos e inundaciones de detritos en una cuenca de montaña</figcaption>
+				</section>
+
+				<section>
+					<h3>Procesos de ladera y de cauce</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/f5/81/65/f5816500f5377f132a05852eb6aa541c.jpg">
+				</section>
+
+				<section>
+					<h3>Dos miradas: geología e hidrología</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/c9/68/d3/c968d3de8d952df10f4392701f1077c6.jpg">
+				</section>
+
+				<section>
+					<h3>¿Quién transmite el momento?</h3>
+					<table>
+						<tr>
+							<th></th>
+							<th>Dominado por sólidos</th>
+							<th>Dominado por fluido</th>
+						</tr>
+						<tr>
+							<td><b>Mecanismo</b></td>
+							<td>Colisiones y fricción entre granos</td>
+							<td>Turbulencia del agua</td>
+						</tr>
+						<tr>
+							<td><b>Concentración</b></td>
+							<td>Alta (&gt; 60 %)</td>
+							<td>Moderada a baja (20–60 %)</td>
+						</tr>
+						<tr>
+							<td><b>Ejemplo</b></td>
+							<td>Flujo de detritos grueso</td>
+							<td>Flujo de lodo, hiperconcentrado</td>
+						</tr>
+					</table>
+					<figcaption>Iverson (1997); Iverson &amp; George (2024)</figcaption>
+				</section>
+
+				<section>
+					<h3>Clasificación por concentración</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/70/07/4b/70074b59f169e99adf125629a62c7486.jpg">
+					<figcaption>Modificado de Phillips (1988), luego de Bradley &amp; McCutcheon (1985). <a
+							href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Taxonomía de flujos no newtonianos</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/61/76/45/6176459c6f45d39f3cf5bcff67e9076f.jpg">
+					<figcaption>Coussot &amp; Meunier (1996). <a
+							href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Procesos de transporte de masa</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/fc/57/b3/fc57b334104da70da57da79259c485ff.jpg">
+					<figcaption>Procesos de transporte de masa. Nardin et al. (1979)</figcaption>
+				</section>
+
+				<section>
+					<h3>Anatomía de un flujo de detritos</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/1f/16/d2/1f16d27bcae22b6196b0db6a19b851fc.gif">
+					<figcaption>Fuente: Springer, doi:10.1007/978-3-319-35074-5_3</figcaption>
+				</section>
+
+				<section>
+					<h3>Frente, cuerpo y cola</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/a0/d8/e9/a0d8e90da39731f9ef3079cd7fafd61f.png">
+					<figcaption>Morfología típica de un flujo de detritos</figcaption>
+				</section>
+
+				<section>
+					<h3>Zona de inicio, tránsito y depósito</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/be/2e/c6/be2ec63356ead5b933217ae717e9e526.jpg">
+					<figcaption>Fuente: Jakob (2005)</figcaption>
+				</section>
+
+				<section>
+					<h3>Inicio</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/03/1d/1c/031d1c0166fd7c2449e6bf687690ade1.jpg">
+					<figcaption>Cicatrices de deslizamientos, Vargas (Venezuela), 1999. Wieczorek et al. (USGS)
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Tránsito</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/f9/a3/34/f9a33409b41712d63f80862026075646.jpg">
+					<figcaption>Canal de flujo de detritos, Ladakh. Foto: DanHobley (CC BY-SA 3.0)</figcaption>
+				</section>
+
+				<section>
+					<h3>Depósito</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/4d/cd/9a/4dcd9a55625bcef04421d2366db5a314.jpg">
+					<figcaption>Caraballeda, Vargas 1999. Wieczorek et al. (USGS)</figcaption>
+				</section>
+
+				<section>
+					<h3>Abanicos aluviales</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/e0/4c/b2/e04cb2ae15d8b1439f54642a0b11cecf.jpg">
+							<figcaption>Irán. NASA</figcaption>
+						</div>
+						<div><img src="https://i.pinimg.com/originals/c4/d8/f5/c4d8f565c7caea343dd2582de9ee36fe.jpg">
+							<figcaption>Taklimakan, China. NASA/ASTER</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Illgraben: un laboratorio natural</h3>
+					<iframe data-src="https://www.youtube.com/embed/e-gxMR3qjzI" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Faculty of Geosciences, Utrecht University</figcaption>
+				</section>
+
+				<section>
+					<h3>Illgraben en acción</h3>
+					<iframe data-src="https://www.youtube.com/embed/0ENe7wDKP6I" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Illgraben, 22.07.2016. Video: Pierre-Emmanuel Zufferey</figcaption>
+				</section>
+
+				<section>
+					<h3>Flujo de detritos – El Dorado, California (2022)</h3>
+					<blockquote class="twitter-tweet">
+						<p lang="en" dir="ltr">This amazing video captured by San Bernardino county public works - watch
+							all the processes of a <a
+								href="https://twitter.com/hashtag/debrisflow?src=hash&amp;ref_src=twsrc%5Etfw">#debrisflow</a>
+							of the El Dorado scar September 12, 2022 - heavy rain rates on scar at 8000 feet in 1 hour <a
+								href="https://t.co/ZApuQZ5FuP">pic.twitter.com/ZApuQZ5FuP</a></p>&mdash; Alex Tardy
+						Skiwxman (@SanDiegoWCMwx) <a
+							href="https://twitter.com/SanDiegoWCMwx/status/1584932858950320129?ref_src=twsrc%5Etfw">October
+							25, 2022</a>
+					</blockquote>
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</section>
+
+				<section>
+					<h3>Flujos de detritos vs. deslizamientos</h3>
+					<iframe data-src="https://www.youtube.com/embed/5KSS4A1Z8xc" width="800" height="450"
+						allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<h3>En zona urbana</h3>
+					<div class="cols">
+						<div><video controls muted src="videos/urbano_2021_a.mp4"></video></div>
+						<div><video controls muted src="videos/urbano_2021_b.mp4"></video></div>
+						<div><video controls muted src="videos/urbano_2021_c.mp4"></video></div>
+					</div>
+					<figcaption>Registros de flujos de lodo en zona urbana (abril 2021)</figcaption>
+				</section>
+
+				<section>
+					<h3>Lahares: avenidas torrenciales volcánicas</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/7f/eb/93/7feb937f256e0d5e707d7473e90a4deb.jpg">
+							<figcaption>Mount St. Helens. Dan Miller (USGS)</figcaption>
+						</div>
+						<div><img src="https://i.pinimg.com/originals/e2/f5/90/e2f59009890e634ba72b5c18e794f30e.jpg">
+							<figcaption>Lahar caliente, Santiaguito. Jeff Marso (USGS)</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Armero (1985)</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/00/8b/fa/008bfac87333a993b6c7385eeddc5357.jpg">
+							<figcaption>USGS</figcaption>
+						</div>
+						<div><img src="https://i.pinimg.com/originals/b6/78/a4/b678a462ec9048fa3ea3e759892dd104.png">
+							<figcaption>Mapa de amenaza del Nevado del Ruiz. Wright &amp; Pierson (USGS)</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Armero hoy</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/19/90/b9/1990b92016f6893d6302406a8b65b33e.jpg">
+					<figcaption>Foto: Moterocolombia (CC BY-SA 4.0)</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== Colombia ===================== -->
+			<section>
+				<section>
+					<h1>Avenidas torrenciales en Colombia</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/36/59/28/36592893612ab8d1aa6f01a02a1ebd5c.png">
+					<figcaption>Revista Colombiana de Geografía</figcaption>
+				</section>
+
+				<section>
+					<h3>San Carlos (1990)</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/564x/3a/69/4a/3a694aec93cb6ba23b058ea1bb383171.jpg"></div>
+						<div><img src="https://i.pinimg.com/564x/22/a6/ed/22a6ed4bda37e691f14b5e92fb6f86dd.jpg"></div>
+					</div>
+					<figcaption>Foto: Velásquez &amp; Mejía</figcaption>
+				</section>
+
+				<section>
+					<h3>Tarazá (2007)</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/ee/a2/82/eea2826fade6618d051e9eff50415f2c.jpg"
+						width="430">
+					<figcaption>Foto: Marco Gamboa</figcaption>
+				</section>
+
+				<section>
+					<h3>Salgar (2015)</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/ff/ba/df/ffbadf9de3d59940f87b1eba1a532f91.jpg">
+					<figcaption>Fuente: El Tiempo</figcaption>
+				</section>
+
+				<section>
+					<h3>Salgar (2015)</h3>
+					<iframe data-src="https://www.youtube.com/embed/aSyMonVqOLk" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Sobrevuelo con dron. Noticias Caracol</figcaption>
+				</section>
+
+				<section>
+					<h3>Salgar: ¿se sabía?</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/c3/1b/ae/c31baee3c4d3a1c369c7d82f9f3409f9.jpg">
+					<figcaption>Esquema de Ordenamiento Territorial de Salgar, 1999</figcaption>
+				</section>
+
+				<section>
+					<h3>La Liboriana (2015)</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/08/8c/39/088c39daaf8b6e8ae8e170d76753b70b.jpg">
+				</section>
+
+				<section>
+					<h3>Mocoa (2017)</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/1a/cb/d4/1acbd4c99eb19253ed2ef2c35a07c6db.jpg">
+					<figcaption>Fuente: García-Delgado et al. (2019)</figcaption>
+				</section>
+
+				<section>
+					<h3>Mocoa (2017): explicación geológica</h3>
+					<iframe data-src="https://www.youtube.com/embed/K2wWe-D7VqY" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Vicente Letelier</figcaption>
+				</section>
+
+				<section>
+					<h3>Yalí (2020)</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/38/e5/b0/38e5b0a0c19d81be1326f5472776b6ae.jpg">
+					<figcaption>Foto: DAPARD</figcaption>
+				</section>
+
+				<section>
+					<h3>Anorí (2020)</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/48/de/d2/48ded2fe0653bafd495c80c1071a12c0.jpg">
+					<figcaption>Foto: DAPARD</figcaption>
+				</section>
+
+				<section>
+					<h3>Dabeiba (2020)</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/c9/bb/79/c9bb796371139d0badf2fe08077ba2ce.jpg">
+					<figcaption>Foto: DAPARD</figcaption>
+				</section>
+
+				<section>
+					<h3>Piedra Gorda, Itagüí</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/e5/06/87/e50687a6eff5802d0a6ccfc2e4794150.jpg">
+					<figcaption>Flujo de detritos canalizado. Orjuela (2022)</figcaption>
+				</section>
+
+				<section>
+					<h3>En el mundo: Vargas, Venezuela (1999)</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/cf/b5/4e/cfb54eede26b0424af7e52127b24f349.jpg">
+					<figcaption>Depósitos de flujos de detritos. Wieczorek et al. (USGS)</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== Multiamenaza ===================== -->
+			<section>
+				<section>
+					<h1>Cascadas de amenazas</h1>
+					<img class="fig" src="https://i.pinimg.com/736x/b4/5b/18/b45b18e7d5581026926b7e78d9764721.jpg">
+					<figcaption>Fuente: De Angeli et al. (2022)</figcaption>
+				</section>
+
+				<section>
+					<h3>Multiamenaza (Gill &amp; Malamud, 2014)</h3>
+					<p><span class="tag">Detonante</span> una amenaza dispara otra</p>
+					<p><span class="tag">Influencia</span> una amenaza cambia la probabilidad de otra</p>
+					<p><span class="tag">Coincidencia</span> coinciden en espacio y tiempo</p>
+					<img src="https://i.pinimg.com/736x/a5/7d/ca/a57dcad911dbba9e8e9560a7a5413d69.jpg" width="550">
+					<figcaption>Fuente: De Angeli et al. (2022)</figcaption>
+				</section>
+
+				<section>
+					<h3>Lluvia + sedimentos → avenida torrencial</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/9d/6c/6c/9d6c6c3410d2ca137dd6d426dcbba77b.jpg">
+				</section>
+
+				<section>
+					<h3>Lluvia + enjambre de movimientos en masa → avenida torrencial</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/44/ad/03/44ad039f504c5ef0b7cfec2207ae8a10.jpg">
+				</section>
+
+				<section>
+					<h3>Lluvia + sismo → avenida torrencial</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/aa/06/79/aa0679ccd84ea2a3b334f56ed6896b23.jpg">
+				</section>
+
+				<section>
+					<h3>Glaciar + piroclastos → avenida torrencial</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/39/86/aa/3986aa03dd606e7b2d42a76b6aedcf15.jpg">
+				</section>
+
+				<section>
+					<h3>Embalse + rotura de presa → avenida torrencial</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/9b/1b/7b/9b1b7babca706e458836400373c6c1ff.jpg">
+				</section>
+
+				<section>
+					<h3>Sismo + GLOF → avenida torrencial</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/2f/14/ec/2f14ec7e6d4aa59f4ad0a6b8c63878a7.jpg">
+				</section>
+
+				<section>
+					<h3>Represamiento por deslizamiento</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/9b/6b/fe/9b6bfe22c8fa5afa3b312cc17d21e64c.jpg">
+					<figcaption>Lago del deslizamiento de Hunza, Pakistán. NASA</figcaption>
+				</section>
+
+				<section>
+					<h3>Chamoli, India (2021)</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/19/ff/d0/19ffd04bf027c85d296ed0b2fbe3c6c5.jpg">
+					<figcaption>Avalancha de roca y hielo que se transformó en flujo de detritos. ESA</figcaption>
+				</section>
+
+				<section>
+					<h3>Rasuwagadhi, frontera Nepal–Tíbet</h3>
+					<video data-autoplay muted loop controls src="videos/rasuwagadhi_satelite.mp4" height="500"></video>
+					<figcaption>Recorrido satelital desde la fuente de la inundación hasta la central hidroeléctrica
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Antes y después desde el espacio</h3>
+					<video data-autoplay muted loop controls src="videos/planetscope_2026.mp4" height="500"></video>
+					<figcaption>PlanetScope, 25 y 28 de agosto de 2026 (3 m/px)</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== 3. LA LLUVIA COMO DETONANTE ===================== -->
+			<section>
+				<section>
+					<h1>3. La lluvia como detonante</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/e3/c6/21/e3c6215d4ecdfa2354c7474ae219b5b3.jpg">
+					<figcaption>Lluvia de diciembre de 1999 en Vargas. Wieczorek et al. (USGS)</figcaption>
+				</section>
+
+				<section>
+					<h3>Lluvia en los Andes del norte</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/86/ac/81/86ac81f290500476d88a0500cf2bb911.jpg">
+				</section>
+
+				<section>
+					<h3>Eventos de lluvia y movimientos en masa</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/54/07/c3/5407c3da95ab0d55c3beb075c9c0355a.png">
+						</div>
+						<div><img src="https://i.pinimg.com/originals/15/09/66/150966d2d58ab6d875cb9c4793ce2806.png">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Lluvia, ENSO y movimientos en masa</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/c9/7d/13/c97d13d5fa56c4109f0a364c922725ba.png">
+						</div>
+						<div><img src="https://i.pinimg.com/originals/b4/00/85/b4008579dbec369a912e7907bbcaf498.jpg">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Lluvia y movimientos en masa</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/6e/47/68/6e47687e46e1573144faed8a0b40a888.jpg">
+						</div>
+						<div><img src="https://i.pinimg.com/originals/c1/fa/b1/c1fab1f0a2052a259d0c47313f9d0f47.jpg">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Umbrales de lluvia</h3>
+					<p class="big">$$I = \alpha \, D^{-\beta}$$</p>
+					<p>Por encima de la curva intensidad–duración (I–D) aumenta la probabilidad de que se generen
+						movimientos en masa y flujos.</p>
+					<p><span class="tag">Convectiva</span> corta y muy intensa → flujos por escorrentía</p>
+					<p><span class="tag">Antecedente</span> larga y moderada → suelos saturados y deslizamientos</p>
+				</section>
+
+				<section>
+					<h3>Flash floods</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/01/ec/05/01ec05cc309c0f79ef489a6842b2fd6d.jpg">
+							<figcaption>Mosaic Canyon. National Park Service</figcaption>
+						</div>
+						<div>
+							<iframe data-src="https://www.youtube.com/embed/_yCnQuILmsM" width="450" height="320"
+								allowfullscreen></iframe>
+							<figcaption>rankinstudio</figcaption>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<!-- ===================== 4. RESPUESTA DE LA CUENCA ===================== -->
+			<section>
+				<section>
+					<h1>4. Respuesta de la cuenca</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/e7/fc/10/e7fc10b01ef1126dcc6ef4beac23b3b0.jpg">
+					<figcaption>Illgraben. Foto: Christian David (CC BY-SA 4.0)</figcaption>
+				</section>
+
+				<section>
+					<h3>Ladera y área de drenaje</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/87/c4/78/87c4786ac3cddadb3131bacf7e01e60d.jpg">
+					<figcaption>Fuente: CATENA, doi:10.1016/j.catena.2018.01.025</figcaption>
+				</section>
+
+				<section>
+					<h3>Áreas de aporte variable</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/03/16/69/0316691372d0f5fa9387c4683ea57ec7.jpg">
+				</section>
+
+				<section>
+					<h3>Respuesta de la cuenca</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/4c/23/0e/4c230efe4b29d4e533c3f6b8a56763dd.jpg">
+				</section>
+
+				<section>
+					<h3>Regulación de la cuenca</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/9a/4c/94/9a4c941cd4994a1e0e7f1fe69240ae2e.jpg">
+				</section>
+
+				<section>
+					<h3>Permeabilidad secundaria: macroporos</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/73/d6/b0/73d6b0516f122c502fbab930a82d22be.jpg"
+						width="450">
+				</section>
+
+				<section>
+					<h3>Morfometría: ¿flujo de detritos o creciente?</h3>
+					<p class="big">$$R_{Melton} = \frac{H_{max} - H_{min}}{\sqrt{A}}$$</p>
+					<table>
+						<tr>
+							<th>Tipo de cuenca</th>
+							<th>Área (km²)</th>
+							<th>Melton</th>
+							<th>Pendiente abanico (°)</th>
+						</tr>
+						<tr>
+							<td>Dominada por coluvión</td>
+							<td>0,01</td>
+							<td>1,59</td>
+							<td>&gt; 25</td>
+						</tr>
+						<tr>
+							<td>Dominada por flujos de detritos</td>
+							<td>0,74</td>
+							<td>0,88</td>
+							<td>~10</td>
+						</tr>
+						<tr>
+							<td>Dominada por crecientes</td>
+							<td>15,3</td>
+							<td>0,32</td>
+							<td>~3</td>
+						</tr>
+					</table>
+					<figcaption>Valores medianos. de Haas et al. (2018)</figcaption>
+				</section>
+
+				<section>
+					<h3>Calcula el índice de Melton</h3>
+					<div class="calc">
+						<p>Relieve H (m): <input type="range" id="mH" min="50" max="3000" step="10" value="900"> <b
+								id="mHv">900</b></p>
+						<p>Área A (km²): <input type="range" id="mA" min="0.05" max="50" step="0.05" value="2"> <b
+								id="mAv">2</b></p>
+						<p>R<sub>Melton</sub> = <span class="out" id="mR">0.64</span> &nbsp; <span id="mT"
+								class="tag"></span></p>
+						<p style="font-size:0.8em;color:#555;">Umbrales orientativos: &lt; 0,3 crecientes · 0,3–0,6
+							inundación de detritos · &gt; 0,6 flujo de detritos (Wilford et al., 2004)</p>
+					</div>
+					<script>
+						(function () {
+							function upd() {
+								var H = +document.getElementById('mH').value, A = +document.getElementById('mA').value;
+								var R = (H / 1000) / Math.sqrt(A);
+								document.getElementById('mHv').textContent = H;
+								document.getElementById('mAv').textContent = A;
+								document.getElementById('mR').textContent = R.toFixed(2);
+								document.getElementById('mT').textContent = R < 0.3 ? 'Creciente' : (R < 0.6 ? 'Inundación de detritos' : 'Flujo de detritos');
+							}
+							document.getElementById('mH').addEventListener('input', upd);
+							document.getElementById('mA').addEventListener('input', upd);
+							upd();
+						})();
+					</script>
+				</section>
+
+				<section>
+					<h3>Umbrales morfométricos en Colombia (SGC, 2026)</h3>
+					<table>
+						<tr>
+							<th>Variable</th>
+							<th>Grupo 2 (torrencial) mín.</th>
+							<th>Grupo 2 máx.</th>
+						</tr>
+						<tr>
+							<td>Área (km²)</td>
+							<td>0,22</td>
+							<td>18,68</td>
+						</tr>
+						<tr>
+							<td>Orden del cauce</td>
+							<td>2</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>Índice de Melton</td>
+							<td>0,01</td>
+							<td>0,92</td>
+						</tr>
+						<tr>
+							<td>Densidad de drenaje</td>
+							<td>0,75</td>
+							<td>4,21</td>
+						</tr>
+					</table>
+					<figcaption>Cuencas &gt; 20 km² deben subdividirse. SGC (2026)</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== 5. INCORPORACIÓN DE SEDIMENTOS ===================== -->
+			<section>
+				<section>
+					<h1>5. Incorporación de sedimentos (entrainment)</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/29/72/5d/29725d856d4b8cb8d2953b9bc1ebe15b.jpg">
+					<figcaption>Depósito de flujo de detritos, Ladakh. Foto: DanHobley (CC BY-SA 3.0)</figcaption>
+				</section>
+
+				<section>
+					<h3>El flujo crece en el camino</h3>
+					<p class="big">$$V_{final} = V_{inicial} + \int_0^{L} E(x)\, dx$$</p>
+					<p>La tasa de erosión del cauce <i>E</i> (m³/m) puede multiplicar el volumen inicial en uno o dos
+						órdenes de magnitud (<i>bulking</i>).</p>
+				</section>
+
+				<section>
+					<h3>¿Lecho seco o lecho húmedo?</h3>
+					<iframe data-src="https://www.youtube.com/embed/MpXcKiYeSDk" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Daniel García-Castellano</figcaption>
+				</section>
+
+				<section>
+					<h3>Efecto del volumen</h3>
+					<iframe data-src="https://www.youtube.com/embed/F5OK_xUimFs" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Daniel García-Castellano</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== 6. TIPOS DE FLUJO Y REOLOGÍA ===================== -->
+			<section>
+				<section>
+					<h1>6. Reología de flujos</h1>
+					<p>Fuerzas resistentes: agua clara vs. lodo y detritos</p>
+					<img class="fig" src="https://i.pinimg.com/564x/be/9b/50/be9b504dacaf2a709115028a0f5e650e.jpg">
+				</section>
+
+				<section>
+					<h3>Newtoniano vs. no newtoniano</h3>
+					<iframe data-src="https://www.youtube.com/embed/X_cLJvUBlxw" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Nathan Palmer</figcaption>
+				</section>
+
+				<section>
+					<h3>Fluido de Bingham</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/736x/00/a8/97/00a897f9269263100dd73a4b25d9857b.jpg">
+							<p>$$\tau = \tau_y + \eta \, \frac{du}{dz}$$</p>
+						</div>
+						<div><iframe data-src="https://www.youtube.com/embed/aBEmnb7fqVI" width="420" height="320"
+								allowfullscreen></iframe></div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Modelos reológicos</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/a9/95/92/a99592e92c06eb073c1c7d7699c5785e.jpg">
+					<figcaption>(a) agua clara; (b, c) flujos de lodo y de detritos. <a
+							href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Herschel–Bulkley</h3>
+					<p>$$\tau = \tau_y + K \left(\frac{du}{dz}\right)^n$$</p>
+					<img src="https://i.pinimg.com/736x/2c/fb/9f/2cfb9f97792edddde512299d557b591c.jpg" width="650">
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a>
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Cuadrático de O'Brien</h3>
+					<p>$$\tau = \tau_y + \eta \frac{du}{dz} + \zeta \left(\frac{du}{dz}\right)^2$$</p>
+					<img src="https://i.pinimg.com/736x/13/ab/a5/13aba5b9705dff738d2f30616141f667.jpg" width="650">
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a>
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Voellmy</h3>
+					<p class="big">$$\tau = \mu \, \sigma_n + \frac{\rho \, g \, u^2}{\xi}$$</p>
+					<p><span class="tag">fricción</span> $\mu$: término de Coulomb, controla dónde se detiene</p>
+					<p><span class="tag">turbulencia</span> $\xi$: controla la velocidad</p>
+					<p>Ideal para flujos granulares de alta montaña, con bloques y poca arcilla.</p>
+				</section>
+
+				<section>
+					<h3>¿Cuál uso?</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/b0/85/c7/b085c7b4549b1401c87c3d79752032d5.jpg">
+					<figcaption>Gibson et al. (2020). <a
+							href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Clasificación de flujos no newtonianos</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/93/b5/17/93b5179a9e64ea05ec78de06ffb3410c.png">
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a>
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Clasificación de flujos no newtonianos</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/a8/5d/b1/a85db1ef008f8fbee0ac015408838970.png">
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a>
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Procesos, modelo conceptual y modelo reológico</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/de/85/e2/de85e211be3a7b4ced9cd06ccedcf342.png">
+					<figcaption>Floyd et al. (2020). <a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Reología de flujos</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/6d/3b/db/6d3bdb4831362c944f740bde0418ed93.png">
+					<figcaption>Gibson et al. (2021), ESPL</figcaption>
+				</section>
+
+				<section>
+					<h3>Números adimensionales</h3>
+					<p>$$N_{Bag} = \frac{\nu_s}{1-\nu_s}\,\frac{\rho_s\,\delta^2\,\dot\gamma}{\mu}
+						\qquad N_{Sav} = \frac{\rho_s\,\delta^2\,\dot\gamma^2}{(\rho_s-\rho_f)\,g\,h\,\tan\phi}$$</p>
+					<p><span class="tag">Bagnold</span> colisiones vs. viscosidad</p>
+					<p><span class="tag">Savage</span> colisiones vs. fricción</p>
+					<figcaption>Iverson (1997)</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== Depósitos y evidencias de campo ===================== -->
+			<section>
+				<section>
+					<h1>Depósitos: leer el pasado</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/ff/42/fc/ff42fccd1ee1b73df78597950dab8aeb.jpg">
+					<figcaption>Depósito volcánico de flujo de detritos, Lassen (1915). James St. John (CC BY 2.0)
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Litofacies de flujos de detritos</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/85/a8/75/85a87538a0a131b8e312acf24bb4d9ab.jpg">
+					<figcaption>Dana Point. <a
+							href="https://www.geological-digressions.com/tag/debris-flow-rheology/">Geological Digressions</a>
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Litofacies de flujos de detritos</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/cb/df/d0/cbdfd0dc2c517ef943e9df849a377551.jpg">
+					<figcaption>Pigeon Point. <a
+							href="https://www.geological-digressions.com/tag/debris-flow-rheology/">Geological Digressions</a>
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>Diques laterales (levées) y lóbulos</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/c5/70/f9/c570f9a4425d506416d08b9235d63372.jpg">
+							<figcaption>Central Idaho. USGS (CC BY 2.0)</figcaption>
+						</div>
+						<div><img src="https://i.pinimg.com/originals/c7/bd/f6/c7bdf6cf15a6d8ee1a4d73bea80aa43f.jpg">
+							<figcaption>Toutle, Mount St. Helens 1980. R.L. Schuster (USGS)</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Imbricación</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/736x/2e/0a/5a/2e0a5ad9841eaf41b7f454c0efedba6a.jpg"></div>
+						<div><img src="https://i.pinimg.com/564x/74/89/d8/7489d84541a9bc8c7e467a0e279d5c6b.jpg"></div>
+					</div>
+					<figcaption>Brenna et al. (2020, 2024)</figcaption>
+				</section>
+
+				<section>
+					<h3>Formato de campo: tipo de flujo</h3>
+					<img class="fig" src="https://i.pinimg.com/564x/db/b2/84/dbb2844dd0197d18884b155b933b514d.jpg"
+						width="430">
+					<figcaption>Brenna et al. (2020)</figcaption>
+				</section>
+
+				<section>
+					<h3>Checklist para la salida de campo</h3>
+					<div class="cols">
+						<div style="text-align:left;">
+							<ul>
+								<li>Bloques métricos lejos del cauce</li>
+								<li>Diques laterales y lóbulos</li>
+								<li>Matriz soportada vs. clasto soportada</li>
+								<li>Marcas de impacto y de lodo en árboles</li>
+								<li>Cicatrices en la cuenca alta</li>
+								<li>Abanico y cambio de pendiente</li>
+								<li>Testimonios de la comunidad</li>
+							</ul>
+						</div>
+						<div><img src="https://i.pinimg.com/originals/73/b7/8d/73b78dbe7196522b7f4f2cc7c8cbbb70.jpg">
+							<figcaption>Torrent du Claret. Alexandre Modesto (CC BY-SA 4.0)</figcaption>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<!-- ===================== 7. ECUACIONES Y MODELOS DE DOS FASES ===================== -->
+			<section>
+				<section>
+					<h1>7. Ecuaciones de gobierno</h1>
+					<iframe data-src="https://www.youtube.com/embed/F9UdpZZT8bk" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Canal de flujos de detritos, Universidad de Utrecht</figcaption>
+				</section>
+
+				<section>
+					<h3>Saint-Venant (aguas someras) 1D</h3>
+					<p>$$\frac{\partial h}{\partial t} + \frac{\partial (h u)}{\partial x} = E$$</p>
+					<p>$$\frac{\partial (h u)}{\partial t} + \frac{\partial}{\partial x}\left(h u^2 + \tfrac{1}{2} g
+						h^2 \cos\theta\right) = g h \sin\theta - \frac{\tau_b}{\rho}$$</p>
+					<p><span class="tag">masa</span> <span class="tag">momento</span> <span class="tag">$\tau_b$ =
+							reología</span></p>
+				</section>
+
+				<section>
+					<h3>Euleriano vs. lagrangiano</h3>
+					<img class="fig" src="https://i.pinimg.com/1200x/e2/38/d6/e238d69b696c047d37561b24f912ae79.jpg">
+					<figcaption>Malla fija vs. partículas móviles</figcaption>
+				</section>
+
+				<section>
+					<h3>Modelos de dos fases</h3>
+					<p class="big">Sólidos y fluido con su propia velocidad</p>
+					<p>La presión de poros controla la fricción efectiva: el flujo se "licúa" en el frente y se
+						frena cuando drena (Iverson, 1997; Pudasaini, 2012).</p>
+					<p>Tres fases: sólidos gruesos + finos + fluido (Pudasaini &amp; Mergili, 2019) → r.avaflow</p>
+				</section>
+
+				<section>
+					<h3>Experimentos en el canal del USGS</h3>
+					<iframe data-src="https://www.youtube.com/embed/QU_Icq5kFn4" width="800" height="450"
+						allowfullscreen></iframe>
+				</section>
+			</section>
+
+			<!-- ===================== 8. MODELOS DE PROPAGACIÓN ===================== -->
+			<section>
+				<section>
+					<h1>8. Modelos de propagación</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/b2/05/5e/b2055e3e31cf1f7ca718736fc9c9674a.jpg">
+					<figcaption>Torrent du Pousset. Alexmodesto73 (CC BY-SA 4.0)</figcaption>
+				</section>
+
+				<section>
+					<h3>Empíricos: línea de energía</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/1200x/03/5a/59/035a59d6cf09315ff4c40183f1967ee4.jpg"></div>
+						<div>
+							<p>$$\frac{H}{L} = \tan\alpha$$</p>
+							<p>$$L = 1.9\, V^{0.16} H^{0.83}$$</p>
+							<figcaption>Ángulo de alcance (Fahrböschung); Rickenmann (1999)</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Caudal pico</h3>
+					<p class="big">$$Q_p = C_f \, V^{5/6}$$</p>
+					<p>$C_f$ ≈ 0,01 lodos · 0,10 granulares · 0,20 extremo</p>
+					<figcaption>Mitchell et al. (2022), adoptado por SGC (2026)</figcaption>
+				</section>
+
+				<section>
+					<h3>Dirección de flujo</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/736x/4e/b3/c8/4eb3c89daa0238446c582a9c9df83b26.jpg"
+								style="max-height:280px;">
+							<figcaption>D8</figcaption>
+						</div>
+						<div><img src="https://i.pinimg.com/1200x/ff/22/a4/ff22a4cb258c8a3a0ad5e56b35503a06.jpg"
+								style="max-height:280px;">
+							<figcaption>D∞</figcaption>
+						</div>
+						<div><img src="https://i.pinimg.com/736x/ea/70/e5/ea70e5dd786316ba7ef632470bd84480.jpg"
+								style="max-height:280px;">
+							<figcaption>MFD</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Herramientas</h3>
+					<table>
+						<tr>
+							<th>Tipo</th>
+							<th>Modelo</th>
+							<th>Qué da</th>
+						</tr>
+						<tr>
+							<td>Empírico / SIG</td>
+							<td>Flow-R, Flow-Py, GPP, r.randomwalk, DebrisFlow Predictor</td>
+							<td>Alcance y susceptibilidad regional</td>
+						</tr>
+						<tr>
+							<td>Hidrológico-erosivo</td>
+							<td>OpenLISEM</td>
+							<td>Lluvia → escorrentía → flujo</td>
+						</tr>
+						<tr>
+							<td>Una fase 2D</td>
+							<td>FLO-2D, HEC-RAS, Iber-NNF</td>
+							<td>Profundidad y velocidad</td>
+						</tr>
+						<tr>
+							<td>Multifase</td>
+							<td>r.avaflow</td>
+							<td>Cascadas de procesos</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h3>Flow-R</h3>
+					<p>Dirección de flujo (Holmgren) + persistencia + línea de energía</p>
+					<img class="fig" src="https://i.pinimg.com/736x/ea/70/e5/ea70e5dd786316ba7ef632470bd84480.jpg" style="max-height:330px;">
+					<figcaption>Dirección de flujo múltiple. <a href="http://www.flow-r.org/">www.flow-r.org</a> · Horton et al. (2013)</figcaption>
+				</section>
+
+				<section>
+					<h3>r.avaflow</h3>
+					<iframe data-src="https://www.avaflow.org/" width="900" height="460"></iframe>
+					<figcaption><a href="https://www.avaflow.org/">www.avaflow.org</a> · Mergili et al. (2017)
+					</figcaption>
+				</section>
+
+				<section>
+					<h3>HEC-RAS: flujos no newtonianos</h3>
+					<img class="fig" src="https://i.pinimg.com/736x/58/ad/45/58ad45847d713f041cf494e1f1d6c2ab.jpg">
+					<figcaption><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS Mud and
+							Debris Flow Manual</a></figcaption>
+				</section>
+
+				<section>
+					<h3>Modelación numérica vs. experimento</h3>
+					<iframe data-src="https://www.youtube.com/embed/YqUVf7cl6WM" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Solución 1D de un flujo de detritos en el canal del USGS. Joongcheol Paik</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== 9. GUÍA METODOLÓGICA SGC ===================== -->
+			<section>
+				<section>
+					<h1>9. Guía metodológica del SGC</h1>
+					<p class="big">Decreto 1807 de 2014 (compilado en el Decreto 1077 de 2015)</p>
+					<p>Incorporar la gestión del riesgo en los POT, PBOT y EOT</p>
+				</section>
+
+				<section>
+					<h3>Dos escalas</h3>
+					<table>
+						<tr>
+							<th>Escala</th>
+							<th>Qué se hace</th>
+							<th>Producto</th>
+						</tr>
+						<tr>
+							<td><b>Tamizaje</b></td>
+							<td>Evaluación preliminar de torrencialidad</td>
+							<td>Ratificación o exención</td>
+						</tr>
+						<tr>
+							<td><b>1:25 000</b></td>
+							<td>Cuenca: volúmenes, escenarios, modelación</td>
+							<td>Insumos y área de depósito</td>
+						</tr>
+						<tr>
+							<td><b>1:2000</b></td>
+							<td>Suelo urbano, de expansión y centros poblados</td>
+							<td>Amenaza alta, media y baja</td>
+						</tr>
+					</table>
+					<figcaption>SGC (2026)</figcaption>
+				</section>
+
+				<section>
+					<h3>Evaluación preliminar de torrencialidad</h3>
+					<p>$$T = \sum_{k=1}^{7} w_k \, V_k \qquad V_k \in \{0,\ 0.5,\ 1\}$$</p>
+					<p><span class="tag">históricos</span><span class="tag">depósitos</span><span
+							class="tag">inventario MM</span><span class="tag">escorrentía</span><span
+							class="tag">antrópicos</span><span class="tag">morfometría</span><span class="tag">material
+							leñoso</span></p>
+					<figcaption>Pesos $w_k$ por AHP de Saaty, con $CR \le 0.10$. SGC (2026)</figcaption>
+				</section>
+
+				<section>
+					<h3>Intensidad del flujo</h3>
+					<p class="big">$$I_F = h_{max} \cdot u^2_{max} \quad [m^3/s^2]$$</p>
+					<table>
+						<tr>
+							<th>$I_F$ (m³/s²)</th>
+							<th>Categoría</th>
+						</tr>
+						<tr>
+							<td>$\ge 50$</td>
+							<td style="background:#f6dede;">Alta</td>
+						</tr>
+						<tr>
+							<td>1 – 50</td>
+							<td style="background:#fdf0d5;">Media</td>
+						</tr>
+						<tr>
+							<td>&lt; 1</td>
+							<td style="background:#e0f0e0;">Baja</td>
+						</tr>
+					</table>
+					<figcaption>Jakob et al. (2012); SGC (2026)</figcaption>
+				</section>
+
+				<section>
+					<h3>Amenaza = intensidad × probabilidad</h3>
+					<table>
+						<tr>
+							<th>Intensidad</th>
+							<th>Probabilidad (T)</th>
+							<th>Amenaza</th>
+						</tr>
+						<tr>
+							<td>Alta</td>
+							<td>cualquiera</td>
+							<td style="background:#f6dede;">Alta</td>
+						</tr>
+						<tr>
+							<td>Media</td>
+							<td>Alta (T &lt; 30 años)</td>
+							<td style="background:#f6dede;">Alta</td>
+						</tr>
+						<tr>
+							<td>Media</td>
+							<td>Media / Baja</td>
+							<td style="background:#fdf0d5;">Media</td>
+						</tr>
+						<tr>
+							<td>Baja</td>
+							<td>Alta</td>
+							<td style="background:#f6dede;">Alta</td>
+						</tr>
+						<tr>
+							<td>Baja</td>
+							<td>Media</td>
+							<td style="background:#fdf0d5;">Media</td>
+						</tr>
+					</table>
+					<figcaption>SGC (2026)</figcaption>
+				</section>
+
+				<section>
+					<h3>Visor de cuencas morfométricas del SGC</h3>
+					<p>1455 cuencas y 421 eventos (DesInventar, SIMMA, UNGRD, IDEAM)</p>
+					<a href="https://sgcolombiano.maps.arcgis.com/apps/dashboards/20022c43fcf841179ef2c6a3440f1a3d"
+						style="font-size: 22px;">Abrir el tablero del SGC</a>
+				</section>
+			</section>
+
+			<!-- ===================== 10. RIESGO Y VULNERABILIDAD ===================== -->
+			<section>
+				<section>
+					<h1>10. Evaluación del riesgo</h1>
+					<p class="big">$$R = A \times V \times E$$</p>
+					<p><span class="tag">Amenaza</span> <span class="tag">Vulnerabilidad</span> <span
+							class="tag">Exposición</span></p>
+				</section>
+
+				<section>
+					<h3>Exposición</h3>
+					<video data-autoplay muted loop controls src="videos/deslizamiento_aereo.mp4" height="480"></video>
+					<figcaption>Registro aéreo de un movimiento en masa en ladera</figcaption>
+				</section>
+				<section>
+					<h3>Vulnerabilidad física</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/2d/c5/59/2dc559e62883a5f78ef7aaa22d4a8a76.jpg">
+					<figcaption>Daños por flujos de detritos en Montecito, California (2018). U.S. Coast Guard</figcaption>
+				</section>
+
+				<section>
+					<h3>Gestión del riesgo</h3>
+					<img class="fig" src="https://i.pinimg.com/originals/aa/0a/c9/aa0ac907d5400b834ba76ec3dbeda294.png">
+				</section>
+			</section>
+
+			<!-- ===================== 11. MEDIDAS DE MITIGACIÓN ===================== -->
+			<section>
+				<section>
+					<h1>11. Medidas de mitigación</h1>
+					<img class="fig" src="https://i.pinimg.com/originals/6b/4c/c2/6b4cc2bd3d9c5b80cc6b3898e4f82eda.jpg">
+					<figcaption>Presa de retención (Geschiebesperre), Austria. Aciarium (CC BY-SA 4.0)</figcaption>
+				</section>
+
+				<section>
+					<h3>Activas vs. pasivas</h3>
+					<p><span class="tag">Activas</span> reducen la probabilidad: manejo de la cuenca, estabilización de
+						cauces</p>
+					<p><span class="tag">Pasivas</span> reducen las consecuencias: presas abiertas, barreras,
+						canalización, áreas de depósito</p>
+					<p><span class="tag">No estructurales</span> ordenamiento territorial, alerta temprana</p>
+				</section>
+
+				<section>
+					<h3>Vargas (Venezuela) después de 1999</h3>
+					<img class="fig" src="images/vargas/vargas_00.png">
+				</section>
+
+				<section>
+					<h3>Presas abiertas de ranuras</h3>
+					<div class="cols">
+						<div><img src="images/vargas/vargas_02.png"></div>
+						<div><img src="images/vargas/vargas_09.png"></div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Presas de gaviones</h3>
+					<div class="cols">
+						<div><img src="images/vargas/vargas_05.png"></div>
+						<div><img src="images/vargas/vargas_11.png"></div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Presas escalonadas</h3>
+					<div class="cols">
+						<div><img src="images/vargas/vargas_06.png"></div>
+						<div><img src="images/vargas/vargas_12.png"></div>
+					</div>
+				</section>
+
+				<section>
+					<h3>¿Funcionan?</h3>
+					<div class="cols">
+						<div><img src="images/vargas/vargas_16.png"></div>
+						<div><img src="images/vargas/vargas_17.png"></div>
+					</div>
+					<figcaption>Presa de Guanape (Vargas): mayo y diciembre de 2001</figcaption>
+				</section>
+
+				<section>
+					<h3>Canalización y presas en serie</h3>
+					<img class="fig" src="images/vargas/vargas_15.png">
+				</section>
+
+				<section>
+					<h3>Presa de peine</h3>
+					<div class="cols">
+						<div><img src="https://i.pinimg.com/originals/71/bb/38/71bb3869320d3969236050cc3cc049cb.jpg">
+							<figcaption>Bregenz, Austria. Asurnipal (CC BY-SA 4.0)</figcaption>
+						</div>
+						<div><img src="https://i.pinimg.com/originals/9d/4a/07/9d4a07057146ab8aafc7fc01697f0bda.jpg">
+							<figcaption>Montezuma, Nuevo México. Matthew.kowal (CC BY-SA 4.0)</figcaption>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Barreras flexibles</h3>
+					<iframe data-src="https://www.youtube.com/embed/CU2X3dvovpk" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Geobrugg</figcaption>
+				</section>
+
+				<section>
+					<h3>Ensayo a escala real: 200 m³</h3>
+					<iframe data-src="https://www.youtube.com/embed/5J_lKnUh8_0" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Geobrugg</figcaption>
+				</section>
+
+				<section>
+					<h3>Sin y con obras SABO</h3>
+					<iframe data-src="https://www.youtube.com/embed/Nl5CYpc0cQ8" width="800" height="450"
+						allowfullscreen></iframe>
+					<figcaption>Demostración de control de flujos de detritos (sistema SABO, Japón)</figcaption>
+				</section>
+			</section>
+
+			<!-- ===================== 12. CIERRE ===================== -->
+			<section>
+				<section data-background-image="https://i.pinimg.com/originals/85/5b/4a/855b4a4e3216eb32918153597cc7e6dc.jpg"
+					data-background-opacity="0.4">
+					<h1>12. Para la salida de campo</h1>
+					<p class="big"><b>Observar · medir · preguntar</b></p>
+				</section>
+
+				<section>
+					<h3>Recursos</h3>
+					<ul>
+						<li><a href="https://edieraristizabal.github.io/AvenidasTorrenciales/libro/">Libro guía: Avenidas
+								Torrenciales</a></li>
+						<li><a href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/">HEC-RAS Mud and
+								Debris Flow Manual</a></li>
+						<li><a href="https://www.avaflow.org/">r.avaflow</a> · <a
+								href="https://www.flow-r.org/">Flow-R</a></li>
+						<li><a href="https://www.usgs.gov/programs/landslide-hazards">USGS Landslide Hazards
+								Program</a></li>
+						<li><a href="https://co.pinterest.com/edieraristizaba/avenidas-torrenciales/">Tablero de
+								figuras del curso</a></li>
+					</ul>
+				</section>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/math/math.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			slideNumber: 'c/t',
+			hash: true,
+			math: {
+				config: 'TeX-AMS_HTML-full',
+			},
+			menu: {
+				side: 'left',
+				width: 'normal',
+				numbers: false,
+				titleSelector: 'h1, h2, h3',
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: true,
+				themesPath: 'dist/theme/',
+				transitions: false,
+				openButton: true,
+				openSlideNumber: true,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true
+			},
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu, RevealMath],
+			dependencies: [
+
+			]
+		});
+	</script>
+</body>
+
+</html>

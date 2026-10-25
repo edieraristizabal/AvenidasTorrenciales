@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modelos reológicos &#8212; Avenidas Torrenciales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_ModelosReologicos';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://edieraristizabal.github.io/AvenidasTorrenciales/libro/04_ModelosReologicos.html" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Modelos de dos fases (granular-fluido):" href="05_DosFases.html" />
+    <link rel="prev" title="Tipos de flujos" href="04_TiposFlujos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_book.jpg" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
+    <img src="_static/logo_book.jpg" class="logo__image only-dark pst-js-only" alt="Avenidas Torrenciales - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Qué son las Avenidas torrenciales?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelos reológicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte III: Modelos Numéricos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte IV: Aplicación normativa en Colombia</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_GuiaSGC.html">Metodología del Servicio Geológico Colombiano</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/edieraristizabal/AvenidasTorrenciales" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/edieraristizabal/AvenidasTorrenciales/issues/new?title=Issue%20on%20page%20%2F04_ModelosReologicos.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_ModelosReologicos.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modelos reológicos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-bingham">Modelo de Bingham</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-herschelbulkley">Modelo de Herschel–Bulkley</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-voellmysalm">Modelo de Voellmy–Salm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-pcm">Modelo PCM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-bagnold">Modelo de Bagnold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-cuadratico-de-o-brien-y-julien">Modelo cuadrático de O’Brien y Julien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-friccion-de-coulomb">Modelo de fricción de Coulomb</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-supuestos-y-limitaciones-de-los-modelos">Comparación, Supuestos y Limitaciones de los Modelos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rangos-de-parametros-reologicos-para-flujos-de-detritos-debris-flow">Rangos de parámetros reológicos para flujos de detritos (debris flow)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido adaptado del [HEC-RAS Non-Newtonian / Mud and Debris Flow User's Manual](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows) y de la literatura clásica de reología de flujos de escombros (Bagnold, O'Brien y Julien, Coussot, entre otros).</em></p>
+<section class="tex2jax_ignore mathjax_ignore" id="modelos-reologicos">
+<h1>Modelos reológicos<a class="headerlink" href="#modelos-reologicos" title="Link to this heading">#</a></h1>
+<p>Modelar la dinámica de flujos de detritos y lahares es un paso crítico en la evaluación de amenazas, el manejo del riesgo y el diseño de obras de mitigación. Sin embargo, dada la complejidad de estos materiales de dos fases (sólido-líquido), no existe un modelo único que describa perfectamente todos los regímenes de flujo. Los enfoques modernos emplean herramientas numéricas promediadas en profundidad, donde la resistencia al flujo se incorpora como términos friccionales a través de <strong>modelos reológicos</strong> que tratan a la mezcla como un «fluido equivalente» para capturar su comportamiento macroscópico general.</p>
+<p>Estos modelos, aunque simplificados, permiten integrar la física dominante (como cohesión plástica, fricción de Coulomb o turbulencia). El desafío actual en la modelación radica en la incertidumbre intrínseca de los parámetros (como el coeficiente de fricción de Coulomb <span class="math notranslate nohighlight">\(\mu\)</span>, viscosidad dinámica <span class="math notranslate nohighlight">\(\mu_B\)</span>, límite de cedencia <span class="math notranslate nohighlight">\(\tau_y\)</span>, coeficiente de turbulencia <span class="math notranslate nohighlight">\(\xi\)</span> y esfuerzos granulares), la escasez de datos de calibración histórica y las variabilidades de una topografía compleja. La elección apropiada del modelo determina si el fluido podrá simular procesos de detención en pendientes suaves o continuará fluyendo indefinidamente. A continuación se presentan los principales modelos reológicos aplicables a flujos de escombros, junto con sus fundamentos y el consiguiente mapeo de la <em>pendiente por pérdida de lodo y detritos (<span class="math notranslate nohighlight">\(S_{MD}\)</span> o <span class="math notranslate nohighlight">\(S_f\)</span>)</em>.</p>
+<figure class="align-default" id="rheology">
+<a class="reference internal image-reference" href="https://www.mdpi.com/symmetry/symmetry-10-00094/article_deploy/html/images/symmetry-10-00094-g001.png"><img alt="rheology" src="https://www.mdpi.com/symmetry/symmetry-10-00094/article_deploy/html/images/symmetry-10-00094-g001.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 9 </span><span class="caption-text">Reologia de flujos. Tomado de <a class="reference external" href="https://www.mdpi.com/2073-8994/10/4/94/htm">Wang et al. (2018)</a>.</span><a class="headerlink" href="#rheology" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Un rasgo distintivo de los flujos de escombros es su comportamiento viscoplástico y altamente no lineal.
+A concentraciones volumétricas de sedimento elevadas (por ejemplo, &gt;40–50% de sólidos), la mezcla presenta un esfuerzo de fluencia (o esfuerzo de cedencia) por debajo del cual el material se comporta prácticamente como un sólido estático, y por encima del cual fluye rápidamente como un fluido pesado.
+Esto se atribuye a una red interconectada de partículas finas (arcillas, limos) y el entrelazamiento de granos que confiere una resistencia cohesiva al inicio del movimiento.</p>
+<p>Asimismo, una vez iniciada la fluencia, la relación entre el esfuerzo cortante (<span class="math notranslate nohighlight">\(\tau\)</span>) y la tasa de deformación (<span class="math notranslate nohighlight">\(\dot\gamma\)</span>) puede no ser constante: muchos flujos presentan comportamiento pseudoplástico (shear-thinning), donde la viscosidad aparente disminuye a mayores tasas de corte (debido a la alineación de partículas o rotura de estructuras interparticulares), mientras que otros podrían mostrar comportamiento dilatante (shear-thickening) si la agitación genera más choques entre granos a alta velocidad.</p>
+<p>Además, en flujos rápidos y de gran escala, pueden coexistir zonas laminares (en el núcleo más denso, de deformación lenta) y zonas turbulentas o dispersivas (en los bordes o en la cabeza del flujo, donde los granos chocan violentamente y el fluido se agita). El dominio reológico de un flujo de escombros depende en gran medida de su composición y del régimen de movimiento: por ejemplo, en flujos muy ricos en finos cohesivos (típicamente asociados a ambientes tropicales con suelos arcillosos o erupciones volcánicas que generan lahares), la cohesión interna domina y el material se asemeja a un lodo espeso con un claro umbral de fluencia, bien representado por modelos viscoplásticos como Bingham o Herschel-Bulkley.
+En cambio, en flujos con alto contenido de granos gruesos (típicos de cuencas montañosas empinadas con depósitos detríticos y bloques), la fricción granular y los choques entre partículas pueden predominar, pudiendo modelarse con esquemas de fricción tipo Coulomb o con términos turbulentos cuadráticos (e.g. modelo de Voellmy o modelos “dispersivos” de tipo Bagnold).
+Muchos flujos naturales ocupan un punto intermedio de este espectro, por lo que algunos enfoques combinan múltiples contribuciones reológicas (p. ej., el modelo “cuadrático” de O’Brien &amp; Julien incluye simultáneamente un término cohesivo, uno viscoso lineal y uno cuadrático dispersivo).</p>
+<figure class="align-default" id="flow-taxonomy">
+<a class="reference internal image-reference" href="https://i.pinimg.com/736x/b0/85/c7/b085c7b4549b1401c87c3d79752032d5.jpg"><img alt="Flow axonomy" src="https://i.pinimg.com/736x/b0/85/c7/b085c7b4549b1401c87c3d79752032d5.jpg" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 10 </span><span class="caption-text">Taxonomía de flujos no Newtonianos con los modelos reológicos y ecuaciones utilizadas para modelar según Gibson et al., 2020. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#flow-taxonomy" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La reología de los flujos de escombros es un campo complejo que integra conceptos de mecánica de fluidos no newtonianos, mecánica de suelos y dinámica de granulares. En contextos montañosos y tropicales, entender y modelar esta reología es crucial para predecir el comportamiento de estos flujos destructivos. Los modelos – Bingham, Herschel–Bulkley, Voellmy–Salm, entre otros – proporcionan marcos teóricos simplificados para representar distintos aspectos del flujo: cohesión de finos y viscosidad laminar en Bingham/HB, no linealidad pseudoplástica en HB, fricción basal y turbulencia en Voellmy, e interacciones granulares dispersivas en el modelo cuadrático de O’Brien. Cada modelo tiene fundamentos físicos bien establecidos (p. ej., <span class="math notranslate nohighlight">\(\tau_y\)</span> ligado a la estructura de partículas, término <span class="math notranslate nohighlight">\(V^2\)</span> ligado a colisiones) pero también supuestos limitantes (homogeneidad, parámetros constantes, ausencia de erosión). Por ello, no existe un modelo universal; la elección debe adaptarse al tipo de flujo y a los objetivos del análisis.</p>
+<p>A continuación se detalla cada modelo principal, con sus ecuaciones constitutivas, supuestos y aplicabilidad.</p>
+<section id="modelo-de-bingham">
+<h2>Modelo de Bingham<a class="headerlink" href="#modelo-de-bingham" title="Link to this heading">#</a></h2>
+<p>El modelo de fluido de Bingham <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id134" title="Philippe Coussot and Christophe Ancey. Rheophysical classification of concentrated suspensions and granular pastes. 2000.">Coussot and Ancey, 2000</a>]</span> es uno de los más sencillos y empleados para describir flujos de detritos con alto contenido de finos. Se trata de un modelo viscoplástico: asume que el material posee un esfuerzo de fluencia <span class="math notranslate nohighlight">\(\tau_y\)</span> (también llamado tensión umbral o cedente) que debe superarse para que ocurra deformación continua, y una vez superado ese umbral, el material fluye con un comportamiento plástico perfecto caracterizado por una viscosidad plástica aproximadamente constante <span class="math notranslate nohighlight">\(\mu_p\)</span>. Matemáticamente, la relación esfuerzo-deformación cortante se expresa como:</p>
+<p><span class="math notranslate nohighlight">\(\tau = \tau_y + \mu_p \dot\gamma\)</span></p>
+<p>En esta formulación lineal con intercepto, <span class="math notranslate nohighlight">\(\tau_y\)</span> representa el valor de esfuerzo cortante en el cual comienza el flujo (intercepto no nulo), mientras que <span class="math notranslate nohighlight">\(\mu_p\)</span> es la pendiente de la relación tensión vs. tasa de corte, es decir, la viscosidad (constante) de la mezcla una vez movilizada. Por debajo de <span class="math notranslate nohighlight">\(\tau_y\)</span>, el material se comporta como un sólido rígido (no hay deformación irreversible), y por encima se comporta como un fluido newtoniano de alta viscosidad.</p>
+<p><strong>Traducción a pérdida reológica (Ecuación de Momento):</strong>
+En los códigos numéricos se divide inercialmente en estática y dinámica sumando los términos: <span class="math notranslate nohighlight">\(S_{MD} = S_{yield} + S_{viscous}\)</span></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(S_{yield}\)</span> (Término de Cedencia):</strong> Equivale a <span class="math notranslate nohighlight">\(\frac{\tau_y}{\rho_m g h}\)</span>. Es el límite de estática. Si el empuje base de la pendiente no excede este valor constante, el flujo se parará automáticamente. Depende directamente de la matriz de cohesión.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(S_{viscous}\)</span> (Término Viscoso):</strong> El rozamiento microscópico puramente intergranular, que crece de la mano a la velocidad relativa local de forma lineal. Un ejemplo cotidiano de fluido tipo Bingham es la mayonesa, que no fluye hasta que la tensión aplicada excede cierto valor, tras lo cual se comporta como un líquido espeso.</p></li>
+</ul>
+<p>La ecuación de Bingham se aplica a menudo a flujos hiperconcentrados y flujos de lodo. En teoría, estos flujos de menor concentración se ajustan mejor al modelo lineal. Sin embargo, su formulación relativamente simple hace que sea más fácil de calibrar. Menos parámetros libres lo hacen menos vulnerable a problemas de equifinalidad. Por lo tanto, se ha aplicado con éxito a flujos de detritos de mayor concentración en aplicaciones de laboratorio y de campo.</p>
+<p>El modelo de Bingham solo requiere dos datos de entrada por parte del usuario: el esfuerzo de cedencia (el intercepto de la relación esfuerzo-deformación) y la viscosidad del flujo cargado de sedimento (la pendiente de la relación esfuerzo-deformación). en el modelo HEC RAS Las opciones para estos se describen en las secciones de Esfuerzo de Cedencia y Viscosidad de la siguiente forma.</p>
+<figure class="align-default" id="bingham-model">
+<a class="reference internal image-reference" href="https://i.pinimg.com/736x/00/a8/97/00a897f9269263100dd73a4b25d9857b.jpg"><img alt="https://i.pinimg.com/736x/00/a8/97/00a897f9269263100dd73a4b25d9857b.jpg" src="https://i.pinimg.com/736x/00/a8/97/00a897f9269263100dd73a4b25d9857b.jpg" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 11 </span><span class="caption-text">Modelo de Bingham. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/non-newtonian-transport-editor/non-newtonian-methods">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#bingham-model" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>El comportamiento Bingham en flujos de escombros se asocia a la presencia de una fase fina cohesiva (arcilla, limo) que genera enlaces inter-partícula y cohesión estática. Este esfuerzo cohesivo debe romperse para iniciar el flujo, de forma análoga a superar la resistencia al corte de un suelo cohesivo. Luego, la resistencia viscosa durante el flujo proviene de la fricción interna del fluido mezclado con partículas. Estudios experimentales con lodos naturales han demostrado que suspensiones de alta concentración (por ejemplo, material &lt;2 mm de un flujo de escombros) se aproximan bien a un comportamiento de Bingham a tasas de corte moderadas y altas. Major y Pierson <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id213" title="Jon J. Major and Thomas C. Pierson. Rheological analysis of fine-grained natural debris-flow material. 1990.">Major and Pierson, 1990</a>]</span> midieron reologías de un flujo de escombros natural y encontraron que, a tasas de deformación mayores de ~5 <span class="math notranslate nohighlight">\(s^-1\)</span>, la mezcla presentaba un límite de fluencia claro y viscosidad plástica definidas (comportándose como un Bingham plástico), con <span class="math notranslate nohighlight">\(\tau_y\)</span> y <span class="math notranslate nohighlight">\(\mu_p\)</span> fuertemente dependientes de la concentración de sedimento.</p>
+<p>El modelo de Bingham asume flujo laminar y homogéneo, con propiedades reológicas constantes durante el movimiento. Es más aplicable a flujos lentos o intermedios donde la turbulencia es despreciable y donde la cohesión de finos domina la resistencia (por eso, se recomienda para flujos con elevado contenido de finos arcillosos o limo). Por ejemplo, en flujos híper-concentrados o flujos de lodo iniciales, típicos en cuencas tropicales tras lluvias intensas, la matriz arcillosa induce un claro umbral de fluencia y altos valores de viscosidad, lo cual encaja en la idealización de Bingham. De hecho, en flujos híper-concentrados naturales se han reportado <span class="math notranslate nohighlight">\(\tau_y\)</span> del orden de cientos de Pascales y viscosidades plásticas de <span class="math notranslate nohighlight">\(10^{-1}–10^1\)</span> Pa·s o mayores, dependiendo de la concentración y mineralogía (valores que exceden por mucho la viscosidad del agua, 0.001 Pa·s). El modelo de Bingham se ha utilizado con éxito para simular flujos de detritos con altas concentraciones de sedimento tanto en laboratorio como en campo.</p>
+<p>A pesar de su simplicidad, el modelo de Bingham tiene limitaciones importantes. En primer lugar, impone una relación lineal entre esfuerzo y tasa de deformación una vez iniciado el flujo, lo cual no siempre concuerda con materiales naturales: experimentos han mostrado que la relación puede ser no lineal (concavidades en la curva esfuerzo vs. deformación) debido a efectos de estructura interna o dispersión granular. Asimismo, la hipótesis de viscosidad constante solo es razonable a altas tasas de corte; a bajas tasas, muchos lodos exhiben tixotropía o variación de viscosidad (por ejemplo, la mezcla puede comportarse más rígida de lo predicho, endureciéndose al reposo). Major y Pierson notaron que por debajo de 5 <span class="math notranslate nohighlight">\(s^{-1}\)</span> las suspensiones desviaban su comportamiento del modelo Bingham, indicando que otros procesos (formación de puente de partículas, etc.) entraban en juego. Otra limitación es que el modelo no incluye efectos granular-inerciales: si el flujo contiene una fracción importante de grava o bloques que interactúan por colisiones, el Bingham puro no capturará el aumento de resistencia a altas velocidades debido a esos choques. En tales casos, un término cuadrático (como veremos en otros modelos) sería necesario. Finalmente, la determinación de los parámetros <span class="math notranslate nohighlight">\(\tau_y\)</span> y <span class="math notranslate nohighlight">\(\mu_p\)</span> requiere datos experimentales (reometría, ensayos de flujo inclinado, etc.), y estos parámetros pueden variar dinámicamente si cambia la concentración (por erosión/dilución durante el recorrido), algo que el modelo base no contempla (se asume constantes). Aun con estas limitaciones, el modelo de Bingham proporciona una primera aproximación robusta para flujos donde la cohesión de finos y la viscosidad laminar son los controles primarios de la dinámica.</p>
+</section>
+<section id="modelo-de-herschelbulkley">
+<h2>Modelo de Herschel–Bulkley<a class="headerlink" href="#modelo-de-herschelbulkley" title="Link to this heading">#</a></h2>
+<p>El método de Herschel-Bulkley <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id31" title="Winslow H. Herschel and Ronald Bulkley. Konsistenzmessungen von Gummi-Benzollösungen. Kolloid-Zeitschrift, 39(4):291–300, 1926. doi:10.1007/BF01432034.">Herschel and Bulkley, 1926</a>]</span> es un enfoque no lineal de dos términos para la reología de flujos. Este método eleva la deformación a una potencia, la cual puede ser mayor o menor que 1. A diferencia del método de Bingham que eleva la deformación a la potencia de 1, o el de O’Brien que utiliza un modelo cuadrático (elevando la deformación a las potencias de 1 y 2), el de Herschel-Bulkley puede elevar la deformación a potencias no enteras, ya sean mayores o menores que 1. El modelo de Herschel–Bulkley (HB) es una generalización del modelo de Bingham que permite capturar relaciones no lineales entre el esfuerzo cortante y la tasa de deformación, manteniendo a la vez la noción de un esfuerzo de fluencia. Su ecuación constitutiva se expresa típicamente como:</p>
+<p><span class="math notranslate nohighlight">\(\tau=\tau_y+ 𝐾 \dot\gamma^n\)</span></p>
+<p>​
+donde <span class="math notranslate nohighlight">\(\tau_y\)</span> es de nuevo el esfuerzo umbral de fluencia, <span class="math notranslate nohighlight">\(K\)</span> es el índice de consistencia (una especie de viscosidad generalizada) y <span class="math notranslate nohighlight">\(n\)</span> es el índice de comportamiento (exponente de la ley de potencia). Cuando <span class="math notranslate nohighlight">\(n = 1\)</span>, el modelo de Herschel–Bulkley se reduce al caso Bingham simple. En todos los casos, persiste la condición de umbral: por debajo de <span class="math notranslate nohighlight">\(\tau_y\)</span> no hay deformación permanente, análogo a un sólido.</p>
+<p><strong>Traducción a pérdida reológica (Ecuación de Momento):</strong>
+Asume alteraciones dinámicas (ablandamientos o endurecimientos) sobre el perfil principal base en función de las deformaciones: <span class="math notranslate nohighlight">\(S_{MD} = \frac{\tau_y}{\rho_m g h} + \frac{K}{\rho_m g h} \left( \frac{V}{h} \right)^n\)</span></p>
+<ul class="simple">
+<li><p><strong>Si <span class="math notranslate nohighlight">\(n &lt; 1\)</span> (Shear-thinning):</strong> El fluido es pseudoplástico (reóctipo adelgazante). El barro y la masa lodosa sufren una relajación del campo macroscópico al avanzar. Crecimiento logarítmico del arrastre que se suaviza con mayor velocidad.</p></li>
+<li><p><strong>Si <span class="math notranslate nohighlight">\(n &gt; 1\)</span> (Shear-thickening):</strong> Comportamiento dilatante o espesante. Propio de mezclas altamente concentradas saturadas. Si el evento sube por un pico temporal de velocidad se resistirá a sí mismo frenando drásticamente, incrementando las pérdidas exponencialmente sobre esa cresta inercial.</p></li>
+</ul>
+<figure class="align-default" id="herschel-bulckley-model">
+<a class="reference internal image-reference" href="https://i.pinimg.com/736x/2c/fb/9f/2cfb9f97792edddde512299d557b591c.jpg"><img alt="https://i.pinimg.com/736x/2c/fb/9f/2cfb9f97792edddde512299d557b591c.jpg" src="https://i.pinimg.com/736x/2c/fb/9f/2cfb9f97792edddde512299d557b591c.jpg" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 12 </span><span class="caption-text">Modelo de Herschel-Bulckley. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#herschel-bulckley-model" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>El modelo de Herschel-Bulkley requiere tres parámetros: El Esfuerzo de Cedencia en el modelo de Herschel-Bulkley es el mismo que en Bingham. Sin embargo, el parámetro lineal que acompaña al término de Deformación pierde sus unidades de viscosidad si la deformación se eleva a una potencia distinta de 1. Por lo tanto, K ya no es la viscosidad cuando el modelo de Herschel-Bulkley se desvía del modelo de Bingham (n≠1). Tanto <span class="math notranslate nohighlight">\(K\)</span> como <span class="math notranslate nohighlight">\(n\)</span> son parámetros empíricos definidos por el usuario.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="https://i.pinimg.com/736x/58/ad/45/58ad45847d713f041cf494e1f1d6c2ab.jpg"><img alt="https://i.pinimg.com/736x/58/ad/45/58ad45847d713f041cf494e1f1d6c2ab.jpg" src="https://i.pinimg.com/736x/58/ad/45/58ad45847d713f041cf494e1f1d6c2ab.jpg" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 13 </span><span class="caption-text">Implementación del modelo de Herschel-Bulckley en HEC-RAS. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>El modelo Herschel–Bulkley fue introducido para reflejar observaciones experimentales ya que muchos lodos naturales y sedimentos no siguen la relación lineal de Bingham, sino que presentan curvatura en la curva esfuerzo-deformación. Por ejemplo, Major y Pierson <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id214" title="Jon J. Major and Thomas C. Pierson. Debris-flow rheology: experimental analysis of fine-grained slurries. 1992.">Major and Pierson, 1992</a>]</span> hallaron que, tras exceder <span class="math notranslate nohighlight">\(\tau_y\)</span>, los lodos podían mostrar inicialmente una pendiente alta (alta viscosidad aparente) que luego disminuía con mayor tasa de corte, sugiriendo comportamiento pseudoplástico (debido posiblemente a la destrucción progresiva de la estructura floculada). En esos casos, un exponente <span class="math notranslate nohighlight">\(n &lt; 1\)</span> en la fórmula HB brindaría un mejor ajuste que <span class="math notranslate nohighlight">\(n=1\)</span>. Este modelo es útil para suspensiones de finos bajo altas tasas de deformación donde la no linealidad es pronunciada. También se ha utilizado en modelación de flujos de escombros para incorporar cierta dependencia de la viscosidad con la velocidad de deformación, aportando mayor realismo que Bingham. Muchos códigos numéricos modernos (e.g. HEC-RAS 6.0) ofrecen la opción de Herschel–Bulkley generalizado justamente para permitir ajustar mejor la reología con datos de laboratorio. Típicamente, se encuentran valores de <span class="math notranslate nohighlight">\(n\)</span> entre ~0.2 y 0.8 para lodos volcanogénicos o arcillosos (shear-thinning marcado), mientras que mezclas con arena gruesa pueden tender a <span class="math notranslate nohighlight">\(n\)</span> cercano a 1 o incluso &gt;1 si hay interacciones dilatantes. Por su parte, <span class="math notranslate nohighlight">\(K\)</span> (consistencia) refleja la resistencia viscosa de la mezcla; sus unidades dependen del valor de <span class="math notranslate nohighlight">\(n\)</span> (lo cual dificulta la interpretación física directa de <span class="math notranslate nohighlight">\(K\)</span>). Para dar una idea, un flujo con alta fracción de arcilla podría tener <span class="math notranslate nohighlight">\(\tau_y\)</span> de varios cientos de Pa, <span class="math notranslate nohighlight">\(n \approx 0.5\)</span> y <span class="math notranslate nohighlight">\(K\)</span> correspondiente a viscosidades aparentes del orden de 1–10 Pa·s a tasas de corte típicas, mientras que un flujo más diluido podría tener <span class="math notranslate nohighlight">\(\tau_y\)</span> bajo (cercano a 0) y comportamiento más Newtoniano (<span class="math notranslate nohighlight">\(n \to 1\)</span>).</p>
+<p>Al igual que Bingham, Herschel–Bulkley sigue siendo un modelo monofásico continuo que trata la mezcla heterogénea como un fluido efectivo. No incorpora explícitamente la física granular (colisiones, rozamiento inter-grano) ni efectos dependientes del tiempo como la tixotropía. Se asume también flujo laminar o lentamente variado, donde la tensión total se puede partir en un componente cohesivo (<em>yield</em>) más uno viscoso general.</p>
+<p>El modelo HB añade flexibilidad a costa de introducir más parámetros que requieren calibración. Determinar <span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(K\)</span> y <span class="math notranslate nohighlight">\(n\)</span> simultáneamente exige datos reológicos detallados; frecuentemente <span class="math notranslate nohighlight">\(\tau_y\)</span> se mide mediante pruebas de fluencia o reómetros de torsión a bajo corte, y luego <span class="math notranslate nohighlight">\(K, n\)</span> se ajustan a curvas esfuerzo-<span class="math notranslate nohighlight">\(\dot\gamma\)</span>. La presencia de <span class="math notranslate nohighlight">\(n \neq 1\)</span> conlleva que <span class="math notranslate nohighlight">\(K\)</span> tenga unidades no triviales (Pa·s^n), lo cual complica su estimación a priori. Además, aunque HB captura la no linealidad, no representa explícitamente la transición sólido-fluido de manera dinámica: es decir, el mismo <span class="math notranslate nohighlight">\(\tau_y\)</span> rige la iniciación y la detención, cuando en realidad en flujos naturales puede existir histéresis (se requiere más esfuerzo para iniciar que para mantener el flujo, debido a reestructuración interna). Por ello, a veces se usan variantes como el modelo de Papanastasiou que suaviza la transición en torno a <span class="math notranslate nohighlight">\(\tau_y\)</span>. Otra limitación es similar a Bingham: en escenarios de alto número de Reynolds o flujos muy rápidos, el modelo HB por sí solo no refleja la aparición de turbulencia ni de tensiones dispersivas por choques. En suma, Herschel–Bulkley es más general que Bingham y suele proporcionar mejores ajustes a datos reométricos de flujos de detritos reales, pero sigue siendo apropiado principalmente cuando el comportamiento está dominado por la matriz fluida y cohesiva bajo flujo laminar. En casos con componentes granulares dominantes o flujos extremadamente rápidos, será necesario complementarlo o optar por otros modelos.</p>
+</section>
+<section id="modelo-de-voellmysalm">
+<h2>Modelo de Voellmy–Salm<a class="headerlink" href="#modelo-de-voellmysalm" title="Link to this heading">#</a></h2>
+<p>El modelo de Voellmy–Salm surge originalmente en el contexto de las avalanchas de nieve <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id77" title="Ronald Perla, T. T. Cheng, and David M. McClung. A two-parameter model of snow-avalanche motion. Journal of Glaciology, 26(94):197–207, 1980. doi:10.3189/S002214300001089X.">Perla <em>et al.</em>, 1980</a>, <a class="reference internal" href="19_Referencias.html#id102">Voellmy, 1955</a>]</span> y ha sido adaptado con éxito para flujos de escombros y otros movimientos rápidos de detritos. A diferencia de los modelos viscoplásticos anteriormente descritos, Voellmy–Salm no se basa en una viscosidad de fluido, sino en una descripción de la resistencia al flujo como combinación de fricción seca y resistencia turbulenta. En esencia, este modelo asume que la fuerza resistiva por unidad de volumen (o la pendiente de energía <span class="math notranslate nohighlight">\(S_f\)</span> equivalente) se puede descomponer en dos componentes: uno independiente de la velocidad (análogo a una fricción Coulomb constante) y otro proporcional al cuadrado de la velocidad (similar a una resistencia aerodinámica o turbulenta). Una forma típica de expresarlo es:</p>
+<p><span class="math notranslate nohighlight">\(S_f = \mu \cos \theta + \frac{V^2}{\xi h}\)</span></p>
+<p><strong>Traducción en esquemas numéricos operacionales (p. ej., RAMMS, Iber):</strong>
+Éste modelo agrupa los términos resistivos llanamente en el basal global, combinando un comportamiento tipo rotura Mohr-Coulomb modificado con resistencia aerodinámica.</p>
+<ul class="simple">
+<li><p><strong>Fricción Topológica de Coulomb (<span class="math notranslate nohighlight">\(\mu \cos \theta\)</span>):</strong> Reemplazo directo al limitador <em>yield</em>. No es en absoluto dependiente de la rapidez del recorrido, se calcula pura y rígidamente sobre el factor angular ortogonal topográfico y su propio peso dinámico depositado. Si la gravedad proyectada no supera esta fricción, el material se detiene por rozamiento seco.</p></li>
+<li><p><strong>Término Hidrodinámico «Drag» (<span class="math notranslate nohighlight">\(\frac{V^2}{\xi h}\)</span>):</strong> Donde el coeficiente turbulento <span class="math notranslate nohighlight">\(\xi\)</span> compensa la agresividad local (típicamente entre 100 y 1000 m/s²). Actúa sumando un freno cuadrático inmerso proporcional al cuadrado de la velocidad del flujo (<span class="math notranslate nohighlight">\(V^2\)</span>), regulando las aceleraciones veloces en terrenos accidentados y choques inerciales.</p></li>
+</ul>
+<p>El modelo Voellmy–Salm conceptúa el flujo de detritos como un continuo granular fluido donde la resistencia al deslizamiento proviene de dos fuentes: (a) fricción basal entre el material y el lecho (y entre partículas, en promedio), representada por <span class="math notranslate nohighlight">\(\mu_f\)</span> constante, y (b) pérdidas por energía de fluctuaciones turbulentas o dispersivas dentro del flujo, representadas por el término cuadrático. El término de fricción seca actúa como un esfuerzo de fluencia basal basado en el peso: si la componente de la gravedad paralela al plano (<span class="math notranslate nohighlight">\(\rho g h \sin\theta\)</span>) no supera <span class="math notranslate nohighlight">\(\mu_f \rho g h \cos\theta\)</span>, el flujo tenderá a frenar y detenerse, lo que es análogo a decir que <span class="math notranslate nohighlight">\(\tan\theta &lt; \mu_f\)</span> resulta en detención (criterio similar al de un bloque rozante en un plano inclinado). Este modelo por tanto no considera cohesión, asumiendo material sin cohesión (cohesión = 0 en términos de Mohr-Coulomb). Por otro lado, el término turbulento-inercial capta que a mayores velocidades, la agitación interna y los choques entre partículas ejercen una fuerza resistiva creciente (al igual que la resistencia del aire crece con <span class="math notranslate nohighlight">\(V^2\)</span>). En flujos de escombros rápidos, especialmente con alto contenido de bloques grandes y surcando cauces estrechos, se observa un comportamiento semejante: una vez que aceleran, la disipación adicional proviene más de la turbulencia y colisiones que de la viscosidad del fluido intersticial. El modelo Voellmy ha sido implementado en herramientas de simulación de avalanchas y flujos, como el software RAMMS (Rapid Mass Movement Simulation) para avalanchas de nieve y flujos de detritos, y en modelos de flujo bidimensionales de investigadores en Suiza, Canadá y otros países. Por ejemplo, Zimmermann et al. <span class="bibtex-citation" id="id7">[<a class="reference internal" href="19_Referencias.html#id302" title="Markus et al. Zimmermann. Calibration of the voellmy-salm model for debris flows in the swiss alps. 2020.">Zimmermann, 2020</a>]</span> calibraron el modelo Voellmy–Salm en 19 flujos de ladera en los Alpes Suizos, hallando que el parámetro de fricción <span class="math notranslate nohighlight">\(\mu_f\)</span> correlacionaba con el porcentaje de arcilla del material movilizado (más arcilla tendía a elevar ligeramente la fricción dinámica, posiblemente por mayor cohesión residual al detenerse).</p>
+<p>Voellmy–Salm es apropiado para flujos muy rápidos y dominados por componentes granulares. Típicamente se usa en escenarios de flujos en canales empinados o avalanchas de detritos donde el material se mueve a varios m/s y recorre largas distancias con comportamiento análogo a un flujo turbulento de alta densidad. En regiones de montaña con flujos de escombros canalizados (por ejemplo, en los Himalayas, Andes o Alpes), este modelo puede reproducir adecuadamente la rápida aceleración y luego desaceleración por rozamiento que se observa en eventos extremos. También se ha empleado en simulaciones de avalanchas de rocas o flujos de detritos generados por colapsos de presas naturales, donde la componente líquida es secundaria y el comportamiento se acerca más al de un flujo granular. Debe destacarse que <span class="math notranslate nohighlight">\(\mu_f\)</span> y <span class="math notranslate nohighlight">\(\xi\)</span> no se miden directamente en laboratorio sino que se calibran retrospectivamente: por ejemplo, a partir de la distancia de alcance y velocidad estimada del flujo, se eligen combinaciones de <span class="math notranslate nohighlight">\(\mu_f\)</span> y <span class="math notranslate nohighlight">\(\xi\)</span> que reproduzcan esos datos. Valores típicos para flujos de escombros líquidos suelen ser <span class="math notranslate nohighlight">\(\mu_f \sim 0.1–0.3\)</span> y <span class="math notranslate nohighlight">\(\xi \sim 200–600 m/s^2\)</span>, mientras que para avalanchas de roca seca <span class="math notranslate nohighlight">\(\mu_f\)</span> puede ser aún menor (~0.05–0.1) y <span class="math notranslate nohighlight">\(\xi\)</span> mayor (&gt;1000) debido a la menor resistencia basal y alta movilidad.</p>
+<p>Aunque eficaz para capturar la dinámica general de flujos rápidos, el modelo Voellmy–Salm es fenomenológico y tiene limitaciones. En primer lugar, al no incluir <span class="math notranslate nohighlight">\(\tau_y\)</span> cohesivo, no modela bien el inicio de movimientos en materiales muy cohesivos o en flujos de baja velocidad: en tales casos, Voellmy predice que cualquier pendiente por encima de la fricción <span class="math notranslate nohighlight">\(\mu_f\)</span> (p. ej. &gt;10°) debería movilizarse, lo que no explica retardos por cohesión o umbrales de humedad necesarios para iniciar ciertos flujos tropicales. Por ello, algunas versiones extendidas incluyen un término cohesivo adicional (como un <span class="math notranslate nohighlight">\(\tau_y\)</span> pequeño o un <span class="math notranslate nohighlight">\(\mu_f\)</span> que disminuye con la velocidad). En segundo lugar, la naturaleza de <span class="math notranslate nohighlight">\(\xi\)</span> es un “cajón de sastre” que engloba tanto turbulencia de fluido como dispersión granular; no distingue entre agua y sólidos ni sus interacciones de forma rigurosa. Esto significa que <span class="math notranslate nohighlight">\(\xi\)</span> puede variar de un evento a otro sin correlación simple con parámetros físicos medibles (Zimmermann et al. encontraron que un parámetro extra de cohesión mejoraba las simulaciones pero no podía relacionarse directamente con propiedades del suelo o la saturación). Asimismo, el modelo asume condiciones de flujo permanente promedio, por lo que no captura transitorios como la fase de parada final donde la turbulencia decae y la mezcla se deposita (a menudo en la práctica, se impone que el flujo se detiene cuando <span class="math notranslate nohighlight">\(V\)</span> cae a casi cero, pues Voellmy en teoría nunca da <span class="math notranslate nohighlight">\(\tau = 0\)</span> a menos que <span class="math notranslate nohighlight">\(V=0\)</span> exactamente). Pese a estas simplificaciones, la formulación Voellmy–Salm ha demostrado ser muy útil en ingeniería para estimar corridas y velocidades máximas de flujos de escombros en 2D, integrándose en códigos como RAMMS DF (de Suiza) o DAN3D (de Canadá) y permitiendo calibrar escenarios de riesgo con relativamente pocos parámetros. Su popularidad se debe a que capta bien la diferencia entre la fase inicial dominada por la gravedad (aceleración rápida limitada solo por fricción basal) y la fase avanzada dominada por la disipación turbulenta (donde la velocidad máxima se regula por el balance entre pendiente y resistencia cuadrática).</p>
+</section>
+<section id="modelo-pcm">
+<h2>Modelo PCM<a class="headerlink" href="#modelo-pcm" title="Link to this heading">#</a></h2>
+<p>El modelo PCM <span class="bibtex-citation" id="id8">[<a class="reference internal" href="19_Referencias.html#id77" title="Ronald Perla, T. T. Cheng, and David M. McClung. A two-parameter model of snow-avalanche motion. Journal of Glaciology, 26(94):197–207, 1980. doi:10.3189/S002214300001089X.">Perla <em>et al.</em>, 1980</a>]</span> es un modelo de fricción de dos parámetros basado en el modelo de Voellmy <span class="bibtex-citation" id="id9">[<a class="reference internal" href="19_Referencias.html#id102">Voellmy, 1955</a>]</span>. Fue desarrollado inicialmente para avalanchas de nieve, pero ha sido utilizado con éxito para simular la propagación de flujos de detritos por varios autores <span class="bibtex-citation" id="id10">[<a class="reference internal" href="19_Referencias.html#id23" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gamma, 2000</a>, <a class="reference internal" href="19_Referencias.html#id33" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">Horton <em>et al.</em>, 2013</a>, <a class="reference internal" href="19_Referencias.html#id254" title="Dieter Rickenmann. Methods for the quantitative assessment of channel processes in torrents. 2016.">Rickenmann, 2016</a>, <a class="reference internal" href="19_Referencias.html#id104" title="Volker Wichmann and Michael Becht. Modelling of geomorphic processes in an alpine catchment. In Peter M. Atkinson, Giles M. Foody, Paul J. Curran, and Susan E. Martin, editors, GeoDynamics, pages 151–162. CRC Press, Boca Raton, 2004.">Wichmann and Becht, 2004</a>, <a class="reference internal" href="19_Referencias.html#id302" title="Markus et al. Zimmermann. Calibration of the voellmy-salm model for debris flows in the swiss alps. 2020.">Zimmermann, 2020</a>]</span>.</p>
+<p>El modelo, basado en el centro de masa, asume que el movimiento está controlado principalmente por un coeficiente de fricción por deslizamiento <span class="math notranslate nohighlight">\(\mu\)</span>, y una relación masa-resistencia aerodinámica <span class="math notranslate nohighlight">\(M/D\)</span>. El parámetro <span class="math notranslate nohighlight">\(\mu\)</span> domina el comportamiento de la velocidad en la zona de alcance (<em>runout</em>).</p>
+<p>La velocidad puede calcularse a lo largo de segmentos de pendiente más o menos homogéneos <span class="bibtex-citation" id="id11">[<a class="reference internal" href="19_Referencias.html#id23" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gamma, 2000</a>]</span>, o  celda por celda en el camino del flujo <span class="bibtex-citation" id="id12">[<a class="reference internal" href="19_Referencias.html#id33" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">Horton <em>et al.</em>, 2013</a>, <a class="reference internal" href="19_Referencias.html#id105" title="Volker Wichmann. The Gravitational Process Path (GPP) model (v1.0) – a GIS-based simulation framework for gravitational processes. Geoscientific Model Development, 10(9):3309–3327, 2017. doi:10.5194/gmd-10-3309-2017.">Wichmann, 2017</a>]</span>. La velocidad <span class="math notranslate nohighlight">\(v_i\)</span> en una celda se calcula según:</p>
+<div class="math notranslate nohighlight">
+\[
+v_i^2 = \alpha_i \left(\frac{M}{D}\right)_i \left(1 - e^{\beta_i}\right) + v_{i-1}^2 e^{\beta_i}
+\]</div>
+<p>donde los parámetros <span class="math notranslate nohighlight">\(\alpha_i\)</span> y <span class="math notranslate nohighlight">\(\beta_i\)</span> son:</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha_i = g \left( \sin \theta_i - \mu_i \cos \theta_i \right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\beta_i = -\frac{2 L_i}{(M/D)_i}
+\]</div>
+<p>y:  <span class="math notranslate nohighlight">\(v_i\)</span>: velocidad [m/s] en la celda actual,  <span class="math notranslate nohighlight">\(v_{i-1}\)</span>: velocidad en la celda anterior,  <span class="math notranslate nohighlight">\(g\)</span>: aceleración de la gravedad [m/s²],  <span class="math notranslate nohighlight">\(\theta_i\)</span>: pendiente local [°],   <span class="math notranslate nohighlight">\(L_i\)</span>: longitud de la pendiente en la celda <span class="math notranslate nohighlight">\(i\)</span> [m],  <span class="math notranslate nohighlight">\(\mu_i\)</span>: coeficiente de fricción por deslizamiento [-],  <span class="math notranslate nohighlight">\(M/D\)</span>: relación masa-resistencia aerodinámica [m].</p>
+<p>En transiciones cóncavas (cuando la pendiente disminuye), la velocidad previa <span class="math notranslate nohighlight">\(v_{i-1}\)</span> se ajusta para conservar el momento lineal, según:</p>
+<div class="math notranslate nohighlight">
+\[
+v_i = v_{i-1} \cos \left( \theta_{i-1} - \theta_i \right) \quad \text{si} \quad \theta_{i-1} \geq \theta_i
+\]</div>
+<p>La distancia de alcance del flujo se calibra ajustando los dos parámetros de fricción.  Sin embargo, como diferentes combinaciones de <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(M/D\)</span> pueden producir la misma distancia de alcance en la práctica, se mantiene <span class="math notranslate nohighlight">\(M/D\)</span> constante a lo largo del trayecto, calibrándolo una sola vez para alcanzar rangos realistas de velocidad máxima.
+El coeficiente de fricción <span class="math notranslate nohighlight">\(\mu\)</span> puede mantenerse constante o variar a lo largo del camino, por ejemplo, para representar diferentes condiciones reológicas debidas al contenido de agua.</p>
+</section>
+<section id="modelo-de-bagnold">
+<h2>Modelo de Bagnold<a class="headerlink" href="#modelo-de-bagnold" title="Link to this heading">#</a></h2>
+<p>El modelo de Bagnold <span class="bibtex-citation" id="id13">[<a class="reference internal" href="19_Referencias.html#id3" title="Ralph A. Bagnold. Experiments on a gravity-free dispersion of large solid spheres in a Newtonian fluid under shear. Proceedings of the Royal Society of London. Series A, 225(1160):49–63, 1954. doi:10.1098/rspa.1954.0186.">Bagnold, 1954</a>]</span> con comportamiento dilatante (es decir, de espesamiento por cizalla, donde el fluido ofrece mayor resistencia a mayores esfuerzos cortantes aplicados) y diferencia tres tipos de flujos: el régimen macroviscoso, el régimen de transición y el régimen granular-inercial.</p>
+<p>El régimen al que pertenece el flujo puede determinarse por el Número de Bagnold (<span class="math notranslate nohighlight">\(Ba\)</span>), el cual depende del diámetro del sedimento (<span class="math notranslate nohighlight">\(D\)</span>), la concentración volumétrica del sedimento (<span class="math notranslate nohighlight">\(C\)</span>), la máxima concentración de sedimento (<span class="math notranslate nohighlight">\(C_0\)</span>), la viscosidad dinámica del fluido (<span class="math notranslate nohighlight">\(\mu\)</span>) y la densidad de las partículas de sedimento (<span class="math notranslate nohighlight">\(\rho_s\)</span>).</p>
+<ul class="simple">
+<li><p>Número de Bagnold (<span class="math notranslate nohighlight">\(Ba\)</span>): Esta es la relación entre los esfuerzos inerciales y los viscosos.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Ba = \frac{\rho_s D^2 \lambda^{1/2} \dot{\gamma}}{\mu_f}\]</div>
+<p><span class="math notranslate nohighlight">\(\rho_s\)</span> = densidad de las partículas sólidas</p>
+<p><span class="math notranslate nohighlight">\(D\)</span> = diámetro de la partícula</p>
+<p><span class="math notranslate nohighlight">\(\lambda\)</span> = concentración lineal</p>
+<p><span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> = tasa de cizalla (shear rate)</p>
+<p><span class="math notranslate nohighlight">\(\mu_f\)</span> = viscosidad del fluido intersticial</p>
+<p>Es importante notar que Bagnold usó la «concentración lineal» (<span class="math notranslate nohighlight">\(\lambda\)</span>), que es la relación entre el diámetro de la partícula (<span class="math notranslate nohighlight">\(D\)</span>) y la distancia media entre partículas. Se relaciona con la concentración volumétrica (<span class="math notranslate nohighlight">\(C\)</span>) así:</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \left[ \left( \frac{C_0}{C} \right)^{1/3} - 1 \right]^{-1}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(C_0\)</span> es la concentración máxima posible (aprox. 0.61-0.74).</p>
+<p>De acuerdo con lo anterior, una ecuación describe el esfuerzo cortante como una función de la deformación del fluido para cada régimen, donde <span class="math notranslate nohighlight">\(a_v\)</span> y <span class="math notranslate nohighlight">\(a_i\)</span> son constantes experimentales y donde <span class="math notranslate nohighlight">\(\alpha_1\)</span> es el ángulo de fricción dinámico (el cual es diferente del ángulo de fricción interna).</p>
+<ul>
+<li><p>Régimen Macroviscoso (Ba &lt; 40): A bajas tasas de cizalla y/o bajas concentraciones. Las partículas están «lejos» y el fluido intersticial domina. El momento se transfiere a través de la viscosidad del fluido. El fluido actúa como un lubricante.</p>
+<p>El esfuerzo total (<span class="math notranslate nohighlight">\(\tau\)</span>) es dominado por el esfuerzo viscoso (<span class="math notranslate nohighlight">\(\tau_v\)</span>). La resistencia es linealmente proporcional a la tasa de cizalla (comportamiento Newtoniano o de Bingham).</p>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\tau \approx \tau_v = a_v \cdot \mu_f \cdot (1 + \lambda) \cdot (1 + 0.5 \lambda) \cdot \dot{\gamma}\]</div>
+<p><span class="math notranslate nohighlight">\(a_v\)</span> = constante empírica (Bagnold encontró <span class="math notranslate nohighlight">\(\approx 2.25\)</span> para <span class="math notranslate nohighlight">\(\lambda &gt; 5\)</span>)</p>
+<p><span class="math notranslate nohighlight">\(\mu_f\)</span> = viscosidad del fluido</p>
+<p>Forma Simplificada: <span class="math notranslate nohighlight">\(\tau_v \propto \mu_{mezcla} \cdot \dot{\gamma}\)</span></p>
+<ul class="simple">
+<li><p>Régimen Granular-Inercial(Ba &gt; 450): A altas tasas de cizalla y/o altas concentraciones. Las partículas están tan juntas que el fluido es «exprimido». El momento se transfiere a través de colisiones inerciales (choques) y fricción entre los granos. El flujo se «dilata» (expande) para poder moverse.</p></li>
+</ul>
+<p>El esfuerzo total (<span class="math notranslate nohighlight">\(\tau\)</span>) es dominado por el esfuerzo inercial (<span class="math notranslate nohighlight">\(\tau_i\)</span>). La resistencia es proporcional al cuadrado de la tasa de cizalla (comportamiento dilatante o shear-thickening).</p>
+<div class="math notranslate nohighlight">
+\[\tau \approx \tau_i = a_i \cdot \rho_s \cdot (\lambda D)^2 \cdot (\dot{\gamma})^2 \cdot \sin(\alpha_i)\]</div>
+<p><span class="math notranslate nohighlight">\(a_i\)</span> = constante empírica (Bagnold encontró <span class="math notranslate nohighlight">\(\approx 0.042\)</span>)</p>
+<p><span class="math notranslate nohighlight">\(\alpha_i\)</span> = ángulo de fricción dinámico (mencionado como <span class="math notranslate nohighlight">\(\alpha_1\)</span> en tu texto, <span class="math notranslate nohighlight">\(\approx 30^\circ - 37^\circ\)</span>)</p>
+<p>Forma Simplificada: <span class="math notranslate nohighlight">\(\tau_i \propto \rho_s D^2 \cdot (\dot{\gamma})^2\)</span></p>
+<p>El modelo de Bagnol tiene como suposiciones claves que el fluido entre los granos (agua) es simple (Newitoniano); no hay fuerzas electroquímicas (cohesión) entre las partículas. Esto lo hace inapropiado para flujos con alto contenido de arcilla; los granos son esféricos, rígidos, de tamaño uniforme (monodispersos) y flotabilidad neutra (en sus experimentos originales, <span class="math notranslate nohighlight">\(\rho_s = \rho_f\)</span>); el modelo describe un flujo en equilibrio, no su inicio o detención; y altas concentracione, el modelo se desarrolló para <span class="math notranslate nohighlight">\(C &gt; 9\%\)</span>.</p>
+</section>
+<section id="modelo-cuadratico-de-o-brien-y-julien">
+<h2>Modelo cuadrático de O’Brien y Julien<a class="headerlink" href="#modelo-cuadratico-de-o-brien-y-julien" title="Link to this heading">#</a></h2>
+<p>El modelo reológico cuadrático de O’Brien et al. <span class="bibtex-citation" id="id14">[<a class="reference internal" href="19_Referencias.html#id73" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">O'Brien and Julien, 1988</a>]</span> combina los cuatro componentes de esfuerzo de las mezclas de sedimentos no newtonianas: (1) cohesión entre partículas, (2) fricción interna entre el fluido y las partículas de sedimento, (3) turbulencia, y (4) impacto inercial entre partículas. El modelo cuadrático separa las relaciones de esfuerzo-deformación en estos cuatro componentes aditivos, de modo que el esfuerzo cortante es:</p>
+<div class="math notranslate nohighlight">
+\[\tau_{MD} = \tau_c + \tau_v + \tau_t + \tau_d\]</div>
+<p>Donde: <span class="math notranslate nohighlight">\(\tau_{MD}\)</span> = el esfuerzo cortante total de lodo y detritos (Pa), <span class="math notranslate nohighlight">\(\tau_c\)</span> = esfuerzo de cedencia (Pa), <span class="math notranslate nohighlight">\(\tau_v\)</span> = esfuerzo cortante viscoso (Pa), <span class="math notranslate nohighlight">\(\tau_t\)</span> = esfuerzo cortante turbulento (Pa) <span class="bibtex-citation" id="id15">[<a class="reference internal" href="19_Referencias.html#id198" title="Pierre Y. Julien and James S. O'Brien. Selected notes on debris-flow dynamics: turbulent shear-stress term. 1997.">Julien and O'Brien, 1997</a>]</span>, <span class="math notranslate nohighlight">\(\tau_d\)</span> = esfuerzo cortante dispersivo (Pa).</p>
+<p><strong>Traducción a pérdida reológica (Ecuación de Momento):</strong>
+Como pendiente de lodo-escombros agrupa esta ecuación combinada separando los efectos en cuatro disipaciones sumadas: <span class="math notranslate nohighlight">\(S_{MD} = S_y + S_v + S_t + S_d\)</span></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(S_y\)</span>:</strong> Fuerzas inter-cohesivas estáticas (como en Bingham).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(S_v\)</span>:</strong> Roce viscoso lineal del relleno capilar cargado capilarmente de finos.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(S_t\)</span> (Turbulencia interna):</strong> Remolinos macroscópicos del barro. A menudo equivalente matemáticamente a los ajustes de Manning.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(S_d\)</span> (Dispersión de Bagnold):</strong> Impactos inerciales resultantes por colisiones entre fragmentos rocosos (<em>boulders</em>). Crece exponencialmente cuadrático directo escalando a la matriz del material y <span class="math notranslate nohighlight">\(V^2\)</span>.</p></li>
+</ul>
+<p>En conjunto, la fórmula cuadrática busca modelar flujos de lodo sumamente heterogéneos: a tasas de corte muy reducidas y durante la fase estática domina la cedencia de límite <span class="math notranslate nohighlight">\(\tau_c\)</span> (Bingham clásico), a tasas intermedias el avance es netamente resistido viscosamente, y a tasas altísimas las dinámicas de fricción colisional y turbulencias (tipo dilatante engrosante). Modelos clásicos de simulación integral como FLO-2D aplican esta aproximación incorporando todo el tren termodinámico en su core matemático. Su calibración resulta muy precisa en capturar el efecto de la concentración de grandes bloques, pero requiere parametrización de factores cruzados (el límite de cedencia, los empujes newtonianos visco-reales, el choque dispersivo cuadrático de partículas y turbulencias macro).</p>
+<p>O’Brien et al. <span class="bibtex-citation" id="id16">[<a class="reference internal" href="19_Referencias.html#id73" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">O'Brien and Julien, 1988</a>]</span> formulan cada uno de estos componentes de esfuerzo para construir su modelo cuadrático, el cual se basa en la tasa de deformación (<span class="math notranslate nohighlight">\(dv_x/dz\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[ \tau_{MD} = \tau_c + \mu_m \left( \frac{dv_x}{dz} \right) + \rho_m l_m^2 \left( \frac{dv_x}{dz} \right)^2 + c_{Bgd} \rho_s \left( \left[ \frac{C_*}{C_v} \right]^{\frac{1}{3}} - 1 \right)^{-2} d_s^2 \left( \frac{dv_x}{dz} \right)^2 \]</div>
+<p>donde: <span class="math notranslate nohighlight">\(dv_x/dz\)</span> = la tasa de corte (1/s), calculada como una función de la velocidad promediada en la profundidad y la profundidad del flujo, <span class="math notranslate nohighlight">\(\mu_m\)</span> = viscosidad dinámica de la mezcla (Pa·s), <span class="math notranslate nohighlight">\(\rho_m\)</span> = densidad de masa de la mezcla de sedimento (kg/m³), <span class="math notranslate nohighlight">\(l_m\)</span> = longitud de mezcla (m), <span class="math notranslate nohighlight">\(c_{Bgd}\)</span> = coeficiente empírico de impacto de Bagnold (<span class="math notranslate nohighlight">\(c_{Bgd} \cong 0.01\)</span>), <span class="math notranslate nohighlight">\(\rho_s\)</span> = densidad de las partículas de sedimento (kg/m³), <span class="math notranslate nohighlight">\(C_*\)</span> = concentración volumétrica máxima de sedimento, <span class="math notranslate nohighlight">\(C_v\)</span> = concentración volumétrica de sedimento, <span class="math notranslate nohighlight">\(d_s\)</span> = tamaño de grano del sedimento (m).</p>
+<p>Takahashi <span class="bibtex-citation" id="id17">[<a class="reference internal" href="19_Referencias.html#id281" title="Tamotsu Takahashi. Debris flow on prismatic open channel. 1980.">Takahashi, 1980</a>]</span> identificó experimentalmente que el coeficiente de impacto de Bagnold (<span class="math notranslate nohighlight">\(c_{Bgd}\)</span>) varía entre 0.35 y 0.5, y que es significativamente mayor que el valor recomendado por Bagnold (1954 y 1956). Iverson <span class="bibtex-citation" id="id18">[<a class="reference internal" href="19_Referencias.html#id42" title="Richard M. Iverson. The physics of debris flows. Reviews of Geophysics, 35(3):245–296, 1997. doi:10.1029/97RG00426.">Iverson, 1997</a>]</span> propone aproximar la tasa de corte media (<span class="math notranslate nohighlight">\(dv_x/dz\)</span>) como <span class="math notranslate nohighlight">\(3\bar{u}/h\)</span> para un perfil de velocidad parabólico, o como <span class="math notranslate nohighlight">\(2\bar{u}/h\)</span> para un perfil lineal, donde <span class="math notranslate nohighlight">\(\bar{u}\)</span> = velocidad promediada en la profundidad (m/s), <span class="math notranslate nohighlight">\(h\)</span> = profundidad del flujo (m).</p>
+<p>La ecuación para la longitud de mezcla de Prandtl se define como: <span class="math notranslate nohighlight">\(l_m = kz\)</span>. donde: <span class="math notranslate nohighlight">\(k\)</span> = el coeficiente de Von Kármán (<span class="math notranslate nohighlight">\(\cong 0.41\)</span>), <span class="math notranslate nohighlight">\(z\)</span> = la distancia proporcional desde el contorno (lecho).</p>
+<p>Este modelo cuadrático combina modos reológicos lineales y no lineales para calcular el esfuerzo cortante interno. El rendimiento de los modelos reológicos disminuye a medida que las mezclas se vuelven más clásticas (es decir, con altas concentraciones de partículas gruesas).</p>
+<p>La ecuación de O’Brien utiliza un modelo cuadrático para añadir los impactos no lineales de la colisión de partículas y la turbulencia a los términos lineales de cedencia y viscosidad del modelo de Bingham. No es tan flexible como la de Herschel-Bulkley. Los efectos no lineales son siempre una función del cuadrado de la deformación, por lo que siempre son efectos de espesamiento por cizalla (shear-thickening) fuertes. Sin embargo, el modelo de O’Brien es más fácil de parametrizar que el de Herschel-Bulkley. La ecuación de O’Brien utiliza valores físicos para desarrollar efectos cuadráticos teóricos. La desventaja de este enfoque es que si la formulación teórica no refleja los procesos del flujo geofísico, introducirá errores. Pero el beneficio de este enfoque físico-teórico es que todos los parámetros de entrada en los términos no lineales son parámetros físicos que son o bien predeterminados o relativamente intuitivos de especificar para el usuario.</p>
+<p>Además del esfuerzo de cedencia, Gibson et al. <span class="bibtex-citation" id="id19">[<a class="reference internal" href="19_Referencias.html#id167" title="Stanford et al. Gibson. Application of quadratic and bingham rheologies in one-dimensional mudflow simulation (hec-ras). 2008.">Gibson, 2008</a>]</span> demostraron que valores más bajos de cedencia y viscosidad son a menudo apropiados para el enfoque de O’Brien en comparación con el de Bingham, porque la ecuación de O’Brien está considerando explícitamente procesos en el término cuadrático que Bingham está agrupando (lumping) en los parámetros lineales. Y además de la viscosidad del flujo cargado de sedimento que se requiere para el modelo de Bingham, el modelo de O’Brien solo requiere la concentración volumétrica (que ya es necesaria para el aumento de volumen o bulking y para algunas estimaciones de cedencia y viscosidad) y un tamaño de grano representativo. HEC-RAS también ha expuesto el valor predeterminado de la concentración volumétrica máxima en el término de Bagnold de O’Brien (0.615 o 61.5%). Este término es aceptable para flujos de menor concentración (Cv&lt;50%). Pero a medida que la concentración se acerca o supera este máximo teórico, los usuarios deberían aumentarlo para que sea mayor que la concentración volumétrica.</p>
+<figure class="align-default" id="quadratic-o-brien-model">
+<a class="reference internal image-reference" href="https://i.pinimg.com/736x/13/ab/a5/13aba5b9705dff738d2f30616141f667.jpg"><img alt="https://i.pinimg.com/736x/13/ab/a5/13aba5b9705dff738d2f30616141f667.jpg" src="https://i.pinimg.com/736x/13/ab/a5/13aba5b9705dff738d2f30616141f667.jpg" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 14 </span><span class="caption-text">Implementación del modelo cuadrático de O’Brien en HEC-RAS. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#quadratic-o-brien-model" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="modelo-de-friccion-de-coulomb">
+<h2>Modelo de fricción de Coulomb<a class="headerlink" href="#modelo-de-friccion-de-coulomb" title="Link to this heading">#</a></h2>
+<p>Es el caso límite en que la resistencia se considera totalmente dominada por la fricción interna del material, con un criterio de falla tipo Mohr-Coulomb (esfuerzo cortante máximo = <span class="math notranslate nohighlight">\(\tau_f = \tau_c + \sigma \tan\phi\)</span>). En flujo continuo, esto equivale esencialmente a <span class="math notranslate nohighlight">\(\tau = \mu \sigma_n + c\)</span> (con <span class="math notranslate nohighlight">\(c\)</span> cohesión, a menudo cero) constante durante el movimiento. Este modelo no tiene término viscoso ni dependiente de tasa de deformación. Es adecuado solo para flujos casi secos o grandes avalanchas de rocas donde el material se comporta más como un deslave granular que como un fluido. En contextos de escombros saturados, el modelo de Coulomb puro suele ser insuficiente, aunque a veces se incluye como componente basal en modelos más completos. Por ejemplo, el “modelo Coulomb-viscoso” mencionado en literatura combina una fricción Coulomb basal con un término viscoso lineal para tener tanto cohesión (c) como fricción <span class="math notranslate nohighlight">\(\tan\phi\)</span>.</p>
+<p>HEC-RAS simula los flujos de detritos clásticos con una aproximación de Coulomb basada en el modelo viscoso de Coulomb de Johnson y Rodine <span class="bibtex-citation" id="id20">[<a class="reference internal" href="19_Referencias.html#id193" title="Arvid M. Johnson and Jerome R. Rodine. Debris flow (viscous coulomb slurry model). 1970.">Johnson and Rodine, 1970</a>]</span> <span class="bibtex-citation" id="id21">[<a class="reference internal" href="19_Referencias.html#id234" title="Daniel et al. Naef. Assessment of debris-flow rheology and runout using field data. 2006.">Naef, 2006</a>]</span>. Este enfoque reemplaza el esfuerzo de cedencia de Bingham (<span class="math notranslate nohighlight">\(\tau_c\)</span>) por un esfuerzo de cedencia de Coulomb de tipo geotécnico, definido como:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_{yc} = \rho_m g h \cos\alpha \tan\phi 
+\]</div>
+<p>donde: <span class="math notranslate nohighlight">\(\tau_{yc}\)</span> = Esfuerzo de cedencia de Coulomb (Pa), <span class="math notranslate nohighlight">\(\alpha\)</span> = ángulo de la pendiente del lecho (°), <span class="math notranslate nohighlight">\(\phi\)</span> = ángulo de fricción de Coulomb (°), que típicamente varía entre 30° y 40° <span class="bibtex-citation" id="id22">[<a class="reference internal" href="19_Referencias.html#id42" title="Richard M. Iverson. The physics of debris flows. Reviews of Geophysics, 35(3):245–296, 1997. doi:10.1029/97RG00426.">Iverson, 1997</a>, <a class="reference internal" href="19_Referencias.html#id221" title="Brian W. McArdell. Field measurements of forces in debris flows. 2019.">McArdell, 2019</a>]</span>. El ángulo de fricción de Coulomb es una función del ángulo de fricción de los granos individuales y de la geometría de empaquetamiento de las partículas a lo largo del plano de falla.</p>
+</section>
+<section id="comparacion-supuestos-y-limitaciones-de-los-modelos">
+<h2>Comparación, Supuestos y Limitaciones de los Modelos<a class="headerlink" href="#comparacion-supuestos-y-limitaciones-de-los-modelos" title="Link to this heading">#</a></h2>
+<p>A continuación se comparan los modelos presentados, enfatizando sus supuestos fundamentales y los escenarios donde mejor se ajustan, así como sus limitaciones inherentes:</p>
+<p><strong>Naturaleza de la resistencia</strong>: Bingham y Herschel–Bulkley tratan la resistencia del flujo como una combinación de cohesión estática (<em>yield</em>) + fricción viscosa dependiente de la velocidad de deformación. Voellmy–Salm, por otro lado, lo concibe como fricción basal + término inercial cuadrático (dependiente de la velocidad de flujo). El modelo cuadrático de O’Brien combina ambas filosofías al incluir término viscoso lineal + término cuadrático. En términos simples, Bingham/HB son más centrados en la fase fluida/cohesiva, mientras Voellmy y Coulomb se centran en la fase sólida/friccional; los modelos híbridos (HB con <span class="math notranslate nohighlight">\(n&lt;1\)</span>, O’Brien) buscan mediar entre ambos extremos.</p>
+<p><strong>Umbral de fluencia vs. fricción continua</strong>: Bingham y HB incorporan explícitamente un umbral de fluencia <span class="math notranslate nohighlight">\(\tau_y\)</span> que debe vencerse para que haya flujo. Esto refleja bien la necesidad de cierta energía (p.ej. lluvia intensa que eleve presión de poros) para arrancar un flujo de escombros cohesivo. Voellmy–Salm carece de un verdadero <span class="math notranslate nohighlight">\(\tau_y\)</span> cohesivo; el único umbral es gravitacional: si la pendiente local supera la fricción <span class="math notranslate nohighlight">\(\mu_f\)</span>, el material podría empezar a moverse (asumiendo saturación). Por tanto, para flujos cohesivos (p.ej. escombros tropicales arcillosos), Bingham/HB capturan la etapa de no flujo a pendientes moderadas hasta que se excede <span class="math notranslate nohighlight">\(\tau_y\)</span>, mientras Voellmy podría sobreestimar la movilidad incial (prediciendo flujo demasiado pronto). Algunos códigos combinan ambos: por ejemplo, RAMMS permite agregar un término cohesivo al modelo Voellmy para representar la resistencia en flujos lentos de ladera.</p>
+<p><strong>Dependencia de la velocidad (régimen laminar vs turbulento)</strong>: Los modelos de Bingham y HB suponen implícitamente un régimen laminar o cuasi-laminar, donde la tensión cortante se relaciona con la velocidad de deformación local. No incluyen términos cuadráticos en la velocidad absoluta del flujo, por lo que por sí solos no pueden representar la resistencia adicional que aparece con la turbulencia o con el transporte de grandes bloques a gran velocidad. En contraste, Voellmy–Salm y O’Brien sí incluyen un término cuadrático (ya sea <span class="math notranslate nohighlight">\(\propto V^2\)</span> o <span class="math notranslate nohighlight">\(\propto \dot\gamma^2\)</span>, que en flujo rápido se relacionan) que representa esa resistencia inercial. Por ello, para flujos muy rápidos en cauces empinados (Re alto, Froude alto), un modelo puramente Bingham podría subestimar la disipación – típicamente en esos casos se han observado largos runouts que solo se explican introduciendo fricción turbulenta variable con <span class="math notranslate nohighlight">\(V\)</span>. Por otro lado, en flujos lentos (Re bajo) el término cuadrático es despreciable y modelos como Voellmy colapsan en un término constante (lo cual no refleja el aumento gradual de viscosidad a bajas velocidades, e.g. por tixotropía). En suma, flujos lentos cohesivos: Bingham/HB son preferibles; flujos rápidos no cohesivos: Voellmy es preferible; flujos intermedios: modelos combinados o calibración cuidadosa.</p>
+<p><strong>Calibración y parámetros</strong>: Los modelos presentados requieren distintos insumos paramétricos. Bingham: <span class="math notranslate nohighlight">\(\tau_y\)</span> y <span class="math notranslate nohighlight">\(\mu_p\)</span> medibles con reometría de lodos; Herschel–Bulkley: <span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(n\)</span> (difíciles de estimar sin datos detallados); Voellmy: <span class="math notranslate nohighlight">\(\mu_f\)</span> y <span class="math notranslate nohighlight">\(\xi\)</span> (se calibran con casos observados, no medibles directamente); O’Brien: <span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, más parámetros granulares (<span class="math notranslate nohighlight">\(c_{Bd}\)</span>, etc.) parcialmente empíricos. Así, los modelos viscoplásticos suelen vincularse más a propiedades intrínsecas del material (contenido de finos, humedad determinan <span class="math notranslate nohighlight">\(\tau_y\)</span>), mientras los inerciales requieren calibración macroscópica (por ejemplo, usando registros de huellas de flujo para ajustar <span class="math notranslate nohighlight">\(\mu_f\)</span>). Cabe destacar que, en cualquier caso, los modelos reológicos efectivos suelen involucrar coeficientes de ajuste. Garcés et al. <span class="bibtex-citation" id="id23">[<a class="reference internal" href="19_Referencias.html#id292" title="Andres et al. Garces. Sensitivity analysis of rheological parameters in debris-flow runout modelling. 2021.">Garces, 2021</a>]</span> recalcan la importancia de identificar los parámetros más sensibles y reconocer que múltiples combinaciones de parámetros pueden reproducir observaciones, lo que exige criterio experto para evitar calibraciones no físicas.</p>
+<p><strong>Interacción con procesos de campo</strong>: Una limitación común de los modelos reológicos simples es que no contemplan cambios en la mezcla debidos a erosión o deposición durante el recorrido. En ambientes montañosos y tropicales, los flujos de escombros a menudo erosionan material del lecho (aumentando su carga de sólidos) o se diluyen con afluentes de agua a lo largo de la trayectoria. Esto altera la reología instantáneamente (un flujo que gana sedimento puede pasar de Newtoniano a Bingham espeso en minutos). Los modelos presentados asumen generalmente propiedades homogéneas constantes; para mayor realismo, algunos modelos numéricos acoplan ecuaciones de <em>entrainment</em> (erosión) y recalculan parámetros reológicos localmente. No obstante, esa es una frontera activa de investigación, ya que incorporar la retroalimentación entre erosión y reología sigue siendo complejo.</p>
+<p><strong>Validez de la aproximación continua</strong>: Todos los modelos mencionados tratan al flujo de escombros como un continuo. Esto es razonable cuando la mezcla es muy heterogénea pero persistentemente mezclada (caso típico de flujos con matriz fluida abundante). Sin embargo, para avalanchas de rocas o flujos de detritos con gran proporción de bloques enormes, el supuesto de continuo puede fallar a escala local (bloques rodando individualmente). En tales casos, modelos discretos (DEM) o bifásicos pueden ser más apropiados.</p>
+<section id="rangos-de-parametros-reologicos-para-flujos-de-detritos-debris-flow">
+<h3>Rangos de parámetros reológicos para flujos de detritos (debris flow)<a class="headerlink" href="#rangos-de-parametros-reologicos-para-flujos-de-detritos-debris-flow" title="Link to this heading">#</a></h3>
+<p>A partir de la revisión de literatura realizada por Sanz-Ramos et al. <span class="bibtex-citation" id="id24">[<a class="reference internal" href="19_Referencias.html#id90" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">Sanz-Ramos <em>et al.</em>, 2025</a>]</span>, la Tabla siguiente recoge los valores mínimos y máximos reportados para los parámetros de calibración de cada modelo reológico específicamente en la modelación de <strong>flujos de detritos</strong> (<em>debris flow</em>):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Mínimo</p></th>
+<th class="head"><p>Máximo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Manning</p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span> (s/m<span class="math notranslate nohighlight">\(^{1/3}\)</span>)</p></td>
+<td><p>0.1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Voellmy</p></td>
+<td><p><span class="math notranslate nohighlight">\(\xi\)</span> (m/s<span class="math notranslate nohighlight">\(^2\)</span>)</p></td>
+<td><p>10</p></td>
+<td><p>600</p></td>
+</tr>
+<tr class="row-even"><td><p>Voellmy</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mu\)</span> (-)</p></td>
+<td><p>0.1</p></td>
+<td><p>0.55</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bingham</p></td>
+<td><p><span class="math notranslate nohighlight">\(\tau_y\)</span> (Pa)</p></td>
+<td><p>750</p></td>
+<td><p>3500</p></td>
+</tr>
+<tr class="row-even"><td><p>Bingham</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mu_B\)</span> (Pa·s)</p></td>
+<td><p>0.4</p></td>
+<td><p>3200</p></td>
+</tr>
+<tr class="row-odd"><td><p>O’Brien-Julien</p></td>
+<td><p><span class="math notranslate nohighlight">\(\tau_y\)</span> (Pa)</p></td>
+<td><p>700</p></td>
+<td><p>1500</p></td>
+</tr>
+<tr class="row-even"><td><p>O’Brien-Julien</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mu_B\)</span> (Pa·s)</p></td>
+<td><p>5</p></td>
+<td><p>35</p></td>
+</tr>
+<tr class="row-odd"><td><p>O’Brien-Julien</p></td>
+<td><p><span class="math notranslate nohighlight">\(K\)</span> (-)</p></td>
+<td><p>24</p></td>
+<td><p>2000</p></td>
+</tr>
+<tr class="row-even"><td><p>O’Brien-Julien</p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span> (s/m<span class="math notranslate nohighlight">\(^{1/3}\)</span>)</p></td>
+<td><p>0.05</p></td>
+<td><p>0.20</p></td>
+</tr>
+<tr class="row-odd"><td><p>O’Brien-Julien</p></td>
+<td><p><span class="math notranslate nohighlight">\(C_v\)</span> (-)</p></td>
+<td><p>0.3</p></td>
+<td><p>0.6</p></td>
+</tr>
+<tr class="row-even"><td><p>O’Brien-Julien</p></td>
+<td><p><span class="math notranslate nohighlight">\(Fr_{max}\)</span> (-)</p></td>
+<td><p>0.5</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Herschel–Bulkley</p></td>
+<td><p><span class="math notranslate nohighlight">\(\tau_y\)</span> (Pa)*</p></td>
+<td><p>0.0239</p></td>
+<td><p>0.0239</p></td>
+</tr>
+<tr class="row-even"><td><p>Herschel–Bulkley</p></td>
+<td><p><span class="math notranslate nohighlight">\(k\)</span> (Pa·s<span class="math notranslate nohighlight">\(^\alpha\)</span>)*</p></td>
+<td><p>2.76</p></td>
+<td><p>2.76</p></td>
+</tr>
+<tr class="row-odd"><td><p>Herschel–Bulkley</p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha\)</span> (-)*</p></td>
+<td><p>0.5</p></td>
+<td><p>0.5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>*Para el modelo de Herschel–Bulkley, los valores provienen de un único dato reportado sin unidades por Satria et al. (2024), citado en Sanz-Ramos et al. <span class="bibtex-citation" id="id25">[<a class="reference internal" href="19_Referencias.html#id90" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">Sanz-Ramos <em>et al.</em>, 2025</a>]</span>, por lo que el mínimo y el máximo coinciden.</p>
+<p>Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan <span class="bibtex-citation" id="id26">[<a class="reference internal" href="19_Referencias.html#id199" title="Changjun Kang and Darwin Chan. Runout modelling and rheological model selection for debris flows. 2018.">Kang and Chan, 2018</a>]</span>).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Reología</p></th>
+<th class="head"><p>Incorpora arrastre</p></th>
+<th class="head"><p>Referencias seleccionadas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3dDMM</p></td>
+<td><p>Friccional y Voellmy</p></td>
+<td><p>Sí</p></td>
+<td><p>Kwan y Sun <span class="bibtex-citation" id="id27">[<a class="reference internal" href="19_Referencias.html#id204" title="James S. H. Kwan and Hong W. Sun. An improved landslide mobility model (3ddmm). 2007.">Kwan and Sun, 2007</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>DAN2D</p></td>
+<td><p>Friccional, Voellmy y Bingham</p></td>
+<td><p>Sí</p></td>
+<td><p>Hungr <span class="bibtex-citation" id="id28">[<a class="reference internal" href="19_Referencias.html#id35" title="Oldrich Hungr. A model for the runout analysis of rapid flow slides, debris flows, and avalanches. Canadian Geotechnical Journal, 32(4):610–623, 1995. doi:10.1139/t95-063.">Hungr, 1995</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>DAN3D</p></td>
+<td><p>Friccional, Voellmy y Bingham</p></td>
+<td><p>Sí</p></td>
+<td><p>McDougall <span class="bibtex-citation" id="id29">[<a class="reference internal" href="19_Referencias.html#id224" title="Scott McDougall and Oldrich Hungr. Dynamic modelling of entrainment in rapid landslides (dan3d). 2006.">McDougall and Hungr, 2006</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>FLATModel</p></td>
+<td><p>Friccional y Voellmy</p></td>
+<td><p>Sí</p></td>
+<td><p>Medina et al. <span class="bibtex-citation" id="id30">[<a class="reference internal" href="19_Referencias.html#id63" title="Vicente Medina, Marcel Hürlimann, and Allen Bateman. Application of FLATmodel, a 2D finite volume code, to debris flows in the northeastern part of the Iberian Peninsula. Landslides, 5(1):127–142, 2008. doi:10.1007/s10346-007-0102-3.">Medina <em>et al.</em>, 2008</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>FLO-2D</p></td>
+<td><p>Cuadrática</p></td>
+<td><p>No</p></td>
+<td><p>O’Brien <span class="bibtex-citation" id="id31">[<a class="reference internal" href="19_Referencias.html#id238" title="James S. O'Brien. Flo-2d user's manual and quadratic rheological model. 2006.">O'Brien, 2006</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Flow-R</p></td>
+<td><p>Voellmy</p></td>
+<td><p>No</p></td>
+<td><p>Horton et al. <span class="bibtex-citation" id="id32">[<a class="reference internal" href="19_Referencias.html#id33" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">Horton <em>et al.</em>, 2013</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>GeoFlow-SPH</p></td>
+<td><p>Friccional, Voellmy y Bingham</p></td>
+<td><p>Sí</p></td>
+<td><p>Pastor et al. <span class="bibtex-citation" id="id33">[<a class="reference internal" href="19_Referencias.html#id76" title="Manuel Pastor, Thomas Blanc, B. Haddad, V. Drempetic, M. S. Morles, P. Dutto, M. M. Stickle, P. Mira, and J. A. F. Merodo. Depth averaged models for fast landslide propagation: mathematical, rheological and numerical aspects. Archives of Computational Methods in Engineering, 22(1):67–104, 2015. doi:10.1007/s11831-014-9110-3.">Pastor <em>et al.</em>, 2015</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>D-Claw</p></td>
+<td><p>Friccional</p></td>
+<td><p>Sí</p></td>
+<td><p>Iverson y George <span class="bibtex-citation" id="id34">[<a class="reference internal" href="19_Referencias.html#id46" title="Richard M. Iverson and David L. George. A depth-averaged debris-flow model that includes the effects of evolving dilatancy. I. Physical basis. Proceedings of the Royal Society A, 470(2170):20130819, 2014. doi:10.1098/rspa.2013.0819.">Iverson and George, 2014</a>]</span>; Iverson <span class="bibtex-citation" id="id35">[<a class="reference internal" href="19_Referencias.html#id44" title="Richard M. Iverson. Mechanics of debris flows and debris floods. In John F. Shroder, editor, Treatise on Geomorphology, volume 7, pages 273–287. Academic Press, San Diego, 2012. doi:10.1016/B978-0-12-374739-6.00181-6.">Iverson, 2012</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>MADFLOW</p></td>
+<td><p>Friccional, Voellmy y Bingham</p></td>
+<td><p>Sí</p></td>
+<td><p>Chen y Lee <span class="bibtex-citation" id="id36">[<a class="reference internal" href="19_Referencias.html#id124" title="Hongxing Chen and C. F. Lee. Landslide runout analysis using madflow. 2000.">Chen and Lee, 2000</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>MassMov2D</p></td>
+<td><p>Voellmy y Bingham</p></td>
+<td><p>Sí</p></td>
+<td><p>Begueria et al. (2009)</p></td>
+</tr>
+<tr class="row-even"><td><p>PFC</p></td>
+<td><p>Interacción entre partículas e interacción partícula-pared</p></td>
+<td><p>Sí</p></td>
+<td><p>Kang y Chan <span class="bibtex-citation" id="id37">[<a class="reference internal" href="19_Referencias.html#id199" title="Changjun Kang and Darwin Chan. Runout modelling and rheological model selection for debris flows. 2018.">Kang and Chan, 2018</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>RAMMS</p></td>
+<td><p>Voellmy</p></td>
+<td><p>No</p></td>
+<td><p>Christen et al. <span class="bibtex-citation" id="id38">[<a class="reference internal" href="19_Referencias.html#id13" title="Marc Christen, Julia Kowalski, and Perry Bartélt. RAMMS: numerical simulation of dense snow avalanches in three-dimensional terrain. Cold Regions Science and Technology, 63(1–2):1–14, 2010. doi:10.1016/j.coldregions.2010.04.005.">Christen <em>et al.</em>, 2010</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>RASH3D</p></td>
+<td><p>Friccional, Voellmy y Cuadrática</p></td>
+<td><p>Sí</p></td>
+<td><p>Pirulli <span class="bibtex-citation" id="id39">[<a class="reference internal" href="19_Referencias.html#id247" title="Marina Pirulli. Rash3d runout modelling of rapid landslides. 2023.">Pirulli, 2023</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>r.avalanche</p></td>
+<td><p>Friccional</p></td>
+<td><p>Sí</p></td>
+<td><p>Mergili et al. <span class="bibtex-citation" id="id40">[<a class="reference internal" href="19_Referencias.html#id68" title="Martin Mergili, Katharina Schratz, Andreas Ostermann, and Wolfgang Fellin. Physically-based modelling of granular flows with open source GIS. Natural Hazards and Earth System Sciences, 12(1):187–200, 2012. doi:10.5194/nhess-12-187-2012.">Mergili <em>et al.</em>, 2012</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>r.avaflow</p></td>
+<td><p>Friccional (sólido) y no newtoniano (fluido)</p></td>
+<td><p>Sí</p></td>
+<td><p>Mergili et al. <span class="bibtex-citation" id="id41">[<a class="reference internal" href="19_Referencias.html#id64" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">Mergili <em>et al.</em>, 2017</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sassa-Wang</p></td>
+<td><p>Friccional</p></td>
+<td><p>Sí</p></td>
+<td><p>Wang y Sassa <span class="bibtex-citation" id="id42">[<a class="reference internal" href="19_Referencias.html#id294" title="Gonghui Wang and Kyoji Sassa. Post-failure mobility of saturated sands in relation to their grading. 2002.">Wang and Sassa, 2002</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>SCIDDICA S3-hex</p></td>
+<td><p>Basado en energía</p></td>
+<td><p>No</p></td>
+<td><p>D’Ambrosio et al. <span class="bibtex-citation" id="id43">[<a class="reference internal" href="19_Referencias.html#id305" title="Donato et al. D'Ambrosio. First simulations of the sciddica s3-hex cellular-automata model for debris flows. 2003.">D'Ambrosio, 2003</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>SHALTOP-2D</p></td>
+<td><p>Friccional</p></td>
+<td><p>No</p></td>
+<td><p>Mangeney-Castelnau et al. <span class="bibtex-citation" id="id44">[<a class="reference internal" href="19_Referencias.html#id216" title="Anne et al. Mangeney-Castelnau. Numerical modelling of avalanches based on saint-venant equations (shaltop-2d). 2003.">Mangeney-Castelnau, 2003</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>TITAN2D</p></td>
+<td><p>Friccional</p></td>
+<td><p>No</p></td>
+<td><p>Pitman et al. <span class="bibtex-citation" id="id45">[<a class="reference internal" href="19_Referencias.html#id306" title="E. Bruce et al. Pitman. Computing granular avalanches and landslides (titan2d). 2003.">Pitman, 2003</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>TOCHNOG</p></td>
+<td><p>Friccional (modelo elastoplástico)</p></td>
+<td><p>Sí</p></td>
+<td><p>Roddeman <span class="bibtex-citation" id="id46">[<a class="reference internal" href="19_Referencias.html#id257" title="D. G. Roddeman. Tochnog user's manual. 1994.">Roddeman, 1994</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>TopFlowDF</p></td>
+<td><p>Friccional, Voellmy y Cuadrática</p></td>
+<td><p>No</p></td>
+<td><p>Scheidl y Rickenmann <span class="bibtex-citation" id="id47">[<a class="reference internal" href="19_Referencias.html#id265" title="Christian Scheidl and Dieter Rickenmann. Empirical prediction of debris-flow mobility and deposition (topflowdf). 2009.">Scheidl and Rickenmann, 2009</a>]</span>; Han et al. <span class="bibtex-citation" id="id48">[<a class="reference internal" href="19_Referencias.html#id177" title="Zheng et al. Han. Numerical simulation of debris-flow behaviour incorporating a dynamic entrainment law. 2015.">Han, 2015</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>VolcFlow</p></td>
+<td><p>Friccional y Voellmy</p></td>
+<td><p>Sí</p></td>
+<td><p>Kelfoun y Druitt <span class="bibtex-citation" id="id49">[<a class="reference internal" href="19_Referencias.html#id53" title="Kaïm Kelfoun and Timothy H. Druitt. Numerical modeling of the emplacement of Socompa rock avalanche, Chile. Journal of Geophysical Research: Solid Earth, 110(B12):B12202, 2005. doi:10.1029/2005JB003758.">Kelfoun and Druitt, 2005</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Wang</p></td>
+<td><p>Friccional</p></td>
+<td><p>No</p></td>
+<td><p>Wang et al. <span class="bibtex-citation" id="id50">[<a class="reference internal" href="19_Referencias.html#id307" title="Gonghui et al. Wang. Runout analysis of the wang landslide model. 2003.">Wang, 2003</a>]</span>; Kang y Chan <span class="bibtex-citation" id="id51">[<a class="reference internal" href="19_Referencias.html#id199" title="Changjun Kang and Darwin Chan. Runout modelling and rheological model selection for debris flows. 2018.">Kang and Chan, 2018</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Massflow</p></td>
+<td><p>Friccional</p></td>
+<td><p>Sí</p></td>
+<td><p>Ouyang et al. (2015)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_TiposFlujos.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Tipos de flujos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_DosFases.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Modelos de dos fases (granular-fluido):</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-bingham">Modelo de Bingham</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-herschelbulkley">Modelo de Herschel–Bulkley</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-voellmysalm">Modelo de Voellmy–Salm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-pcm">Modelo PCM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-bagnold">Modelo de Bagnold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-cuadratico-de-o-brien-y-julien">Modelo cuadrático de O’Brien y Julien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-friccion-de-coulomb">Modelo de fricción de Coulomb</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-supuestos-y-limitaciones-de-los-modelos">Comparación, Supuestos y Limitaciones de los Modelos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rangos-de-parametros-reologicos-para-flujos-de-detritos-debris-flow">Rangos de parámetros reológicos para flujos de detritos (debris flow)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Edier V. Aristizábal G.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
